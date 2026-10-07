@@ -1,0 +1,182 @@
+import type { Dictionary } from "./en";
+
+const de = {
+  meta: {
+    title: "Unlockd — Creator-Websites, die Follower zu Abonnenten machen",
+    description:
+      "Abo-Website-Vorlagen für Creator: gesperrter Feed, Vorschauen, Checkout in einem Schritt und ein Admin-Panel. Auf deiner eigenen Domain, ohne Plattformprovision.",
+    templatesTitle: "Vorlagen — Unlockd",
+  },
+  nav: {
+    templates: "Vorlagen",
+    how: "So wird konvertiert",
+    admin: "Admin",
+    pricing: "Preise",
+    faq: "FAQ",
+    order: "Website bestellen",
+    menu: "Menü",
+    close: "Schließen",
+    language: "Sprache",
+  },
+  hero: {
+    title: "Deine eigene Creator-Website, gebaut, um Follower zu Abonnenten zu machen.",
+    lead: "Vorlagen mit den Abo-Mechaniken, die Fans schon kennen: gesperrter Feed, Vorschauen und Checkout in einem Schritt. Auf deiner Domain, ohne Plattformprovision.",
+    primary: "Vorlagen ansehen",
+    secondary: "Individuelle Website bestellen",
+    facts: ["Keine Plattformprovision", "Deine Domain und deine Fanliste", "Sechs Sprachen, je nach Standort"],
+    unlock: "Vorschau freischalten",
+    relock: "Wieder sperren",
+  },
+  mock: {
+    posts: "Beiträge",
+    photos: "Fotos",
+    videos: "Videos",
+    subscribe: "Abonnieren für 9,99 $",
+    locked: "Zum Freischalten abonnieren",
+    free: "Gratis",
+  },
+  showcase: {
+    title: "Vier Ausgangspunkte",
+    lead: "Alle Vorlagen laufen auf derselben Engine und demselben Admin. Du wählst den Look, wir passen ihn an deine Marke an.",
+    seeAll: "Alle Vorlagen ansehen",
+  },
+  templates: {
+    velvet: { description: "Dunkel, warm und intim, mit goldenen Details.", bestFor: "Glamour, Boudoir" },
+    bloom: { description: "Hell und sanft. Wirkt wie die private Seite einer Freundin.", bestFor: "Lifestyle, Fitness" },
+    neon: { description: "Kräftige Farben, große Schrift, schnelles Scrollen.", bestFor: "Cosplay, Gaming, Alternative" },
+    editorial: { description: "Magazin-Layouts mit Platz für große Fotos.", bestFor: "Fotografen, Models" },
+  },
+  funnel: {
+    title: "Wie aus Besuchern Abonnenten werden",
+    lead: "Jede Vorlage ist um vier Momente herum gebaut, jeder mit eigenen Mechaniken.",
+    steps: [
+      {
+        title: "Ankommen",
+        text: "Besucher kommen über den Link in der Bio, fast immer am Handy.",
+        items: [
+          "Zähler zeigen, wie viel hinter der Paywall wartet",
+          "Ein Abo-Button, der immer in Daumenreichweite bleibt",
+          "3- und 6-Monats-Pakete mit Rabatt",
+        ],
+      },
+      {
+        title: "Neugier wecken",
+        text: "Sie sehen genug, um den Rest zu wollen.",
+        items: ["Ein Feed aus unscharfen, gesperrten Beiträgen", "Alle paar Beiträge ein kostenloser", "Kurze Video-Vorschauen"],
+      },
+      {
+        title: "Abonnieren",
+        text: "Der Checkout passt auf einen Bildschirm.",
+        items: [
+          "Registrierung und Zahlung in einem Schritt",
+          "Ein diskreter Name auf der Kartenabrechnung",
+          "Jederzeit kündbar, klar gesagt",
+        ],
+      },
+      {
+        title: "Bleiben",
+        text: "Abonnenten kommen wieder und geben mehr aus.",
+        items: [
+          "Eine automatische Willkommensnachricht",
+          "Posting-Plan, Stories und Umfragen",
+          "Pause- oder Rabattangebot bei Kündigung und später eine Rückhol-Nachricht",
+        ],
+      },
+    ],
+  },
+  admin: {
+    title: "Das Admin-Panel, mit dem dein Kunde arbeitet",
+    lead: "Ohne Code. Alles, was ein Creator täglich tut, in einem Panel.",
+    items: [
+      { title: "Umsatz-Dashboard", text: "Monatliche Einnahmen, neue und verlorene Abonnenten und wie viele Besucher zu Fans werden." },
+      { title: "Massen-Upload und Planung", text: "Ordner hineinziehen, Beiträge als gratis, gesperrt oder Pay-per-View markieren und ein Datum wählen." },
+      { title: "Automatische Vorschauen", text: "Unscharfe Vorschauen entstehen auf dem Server, sodass das Original nie bei Nicht-Abonnenten ankommt." },
+      { title: "Wasserzeichen pro Abonnent", text: "Jede Kopie trägt den Namen des Käufers, damit sich Leaks zurückverfolgen lassen." },
+      { title: "Fans und Nachrichten", text: "Sieh, wer am meisten ausgibt, schreibe Fan-Gruppen an und verkaufe Inhalte per Nachricht." },
+      { title: "Kampagnen", text: "Rabattcodes, Links für Gratis-Testphasen und welcher Social-Link zahlende Fans bringt." },
+      { title: "Zahlungen", text: "Stripe, CCBill, Segpay, Verotel oder Krypto, je nach Inhalt." },
+      { title: "Compliance", text: "Altersabfrage, Anbindung an Altersverifikation, Cookie-Einwilligung, Rechtstexte, KI-Kennzeichnung und Länder-Sperre." },
+    ],
+  },
+  pricing: {
+    title: "Preise",
+    lead: "Eine Zahlung für die Website. Nach der Übergabe gehört sie samt Inhalt dem Creator.",
+    popular: "Am häufigsten gewählt",
+    order: "Bestellen",
+    plans: [
+      {
+        id: "starter",
+        name: "Starter",
+        price: "490 $",
+        text: "Eine Vorlage in deinem Branding, auf deinem Server installiert.",
+        features: ["Jede Vorlage", "Dein Logo, deine Farben und Schriften", "Installation und Domain-Einrichtung"],
+      },
+      {
+        id: "pro",
+        name: "Pro",
+        price: "1.290 $",
+        text: "Ab dem ersten Tag bereit für Zahlungen.",
+        features: ["Alles aus Starter", "Zahlungsanbieter angebunden", "Automatisierungen eingerichtet", "Eine Stunde Einweisung"],
+      },
+      {
+        id: "custom",
+        name: "Individuell",
+        price: "ab 2.500 $",
+        text: "Ein Design nur für dich.",
+        features: ["Alles aus Pro", "Dein eigenes Design", "Zusätzliche Funktionen auf Anfrage"],
+      },
+    ],
+    support: "Updates und Support sind optional: 49 $ pro Monat.",
+  },
+  process: {
+    title: "So läuft eine Bestellung ab",
+    steps: [
+      { title: "Briefing", text: "Sag uns, welchen Look du willst, deine Domain und wie du Zahlungen annimmst." },
+      { title: "Umsetzung", text: "Die Hälfte wird vorab bezahlt, und wir richten die Vorlage in deinem Branding ein." },
+      { title: "Prüfung", text: "Du prüfst alles über einen privaten Vorschau-Link." },
+      { title: "Übergabe", text: "Du zahlst den Rest, und die Website gehört dir, mit vollem Admin-Zugang." },
+    ],
+  },
+  faq: {
+    title: "Fragen",
+    items: [
+      { q: "Wem gehört die Website?", a: "Dem Creator. Nach der Übergabe haben wir keinen Zugriff, außer er gibt ihn uns." },
+      { q: "Hostet ihr die Inhalte oder seht ihr sie?", a: "Nein. Der Creator lädt auf seinen eigenen Server und Speicher hoch. Wir haben seine Inhalte nie." },
+      {
+        q: "Welche Zahlungsanbieter funktionieren?",
+        a: "Stripe für die meisten Creator. Stripe erlaubt keine Inhalte für Erwachsene; dafür binden wir CCBill, Segpay, Verotel oder Krypto an. Der Creator eröffnet das Händlerkonto, wir richten es ein.",
+      },
+      {
+        q: "Kann die Website Inhalte für Erwachsene zeigen?",
+        a: "Ja, wenn Hoster und Zahlungsanbieter des Creators das erlauben. Altersabfrage, Anbindung an Altersverifikation und Rechtstexte sind eingebaut. Für Inhalte und lokales Recht ist der Creator verantwortlich.",
+      },
+      {
+        q: "Welche Sprachen unterstützt eine Website?",
+        a: "Englisch, Deutsch, Spanisch, Portugiesisch, Russisch und Ukrainisch. Besucher sehen ihre Sprache je nach Standort und können jederzeit wechseln.",
+      },
+      { q: "Was brauche ich zum Start?", a: "Eine Domain, ein Hosting-Konto, dein Logo und ein paar Fotos. Was sonst noch nötig ist, sagen wir dir nach deinem Briefing." },
+    ],
+  },
+  order: {
+    title: "Bereit für deine eigene Website?",
+    lead: "Schick uns ein Briefing: die Vorlage, die dir gefällt, deine Domain und wie du Zahlungen annehmen willst. Wir antworten mit einem Plan und einem Preis.",
+    email: "E-Mail schreiben",
+    telegram: "Auf Telegram schreiben",
+  },
+  listing: {
+    title: "Vorlagen",
+    lead: "Alle Vorlagen teilen dieselbe Engine und dasselbe Admin-Panel. Wähle die, die deinem Stil am nächsten ist; Farben, Schriften und Layout passen wir an deine Marke an.",
+    filterLabel: "Vorlagen filtern",
+    filters: { all: "Alle", dark: "Dunkel", light: "Hell" },
+    bestFor: "Ideal für",
+    from: "ab",
+    preview: "Live-Demo folgt bald",
+    orderThis: "Diese Vorlage bestellen",
+  },
+  footer: {
+    note: "Demo-Bilder sind KI-generiert. Alle Figuren sind fiktive Erwachsene.",
+    rights: "Alle Rechte vorbehalten.",
+  },
+} satisfies Dictionary;
+
+export default de;

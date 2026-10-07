@@ -1,0 +1,182 @@
+import type { Dictionary } from "./en";
+
+const pt = {
+  meta: {
+    title: "Unlockd — sites para criadores que transformam seguidores em assinantes",
+    description:
+      "Templates de sites de assinatura para criadores: feed bloqueado, prévias, pagamento em um passo e painel de administração. No seu próprio domínio, sem comissão de plataforma.",
+    templatesTitle: "Templates — Unlockd",
+  },
+  nav: {
+    templates: "Templates",
+    how: "Como converte",
+    admin: "Painel",
+    pricing: "Preços",
+    faq: "Perguntas",
+    order: "Encomendar um site",
+    menu: "Menu",
+    close: "Fechar",
+    language: "Idioma",
+  },
+  hero: {
+    title: "Um site de criador só seu, feito para transformar seguidores em assinantes.",
+    lead: "Templates com as mecânicas de assinatura que os fãs já conhecem: feed bloqueado, prévias e pagamento em um passo. No seu domínio, sem comissão de plataforma.",
+    primary: "Ver templates",
+    secondary: "Encomendar um site sob medida",
+    facts: ["Sem comissão de plataforma", "Seu domínio e sua lista de fãs", "Seis idiomas, conforme a localização"],
+    unlock: "Desbloquear a prévia",
+    relock: "Bloquear de novo",
+  },
+  mock: {
+    posts: "posts",
+    photos: "fotos",
+    videos: "vídeos",
+    subscribe: "Assinar por US$ 9,99",
+    locked: "Assine para desbloquear",
+    free: "Grátis",
+  },
+  showcase: {
+    title: "Quatro pontos de partida",
+    lead: "Todos os templates usam o mesmo motor e o mesmo painel. Você escolhe o visual; nós adaptamos à sua marca.",
+    seeAll: "Ver todos os templates",
+  },
+  templates: {
+    velvet: { description: "Escuro, quente e íntimo, com detalhes dourados.", bestFor: "Glamour, boudoir" },
+    bloom: { description: "Claro e suave. Parece a página privada de uma amiga.", bestFor: "Lifestyle, fitness" },
+    neon: { description: "Cores fortes, tipografia grande, rolagem rápida.", bestFor: "Cosplay, games, alternativo" },
+    editorial: { description: "Layouts de revista com espaço para fotos grandes.", bestFor: "Fotógrafos, modelos" },
+  },
+  funnel: {
+    title: "Como um visitante vira assinante",
+    lead: "Cada template é construído em torno de quatro momentos, cada um com suas próprias mecânicas.",
+    steps: [
+      {
+        title: "Chegar",
+        text: "Os visitantes vêm do link na bio, quase sempre pelo celular.",
+        items: [
+          "Contadores mostram quanto conteúdo espera atrás do paywall",
+          "Um botão de assinatura sempre ao alcance do polegar",
+          "Pacotes de 3 e 6 meses com desconto",
+        ],
+      },
+      {
+        title: "Provocar",
+        text: "Eles veem o suficiente para querer o resto.",
+        items: ["Um feed de posts borrados e bloqueados", "Um post grátis a cada poucos", "Prévias curtas de vídeo"],
+      },
+      {
+        title: "Assinar",
+        text: "O pagamento cabe em uma tela.",
+        items: [
+          "Cadastro e pagamento em um único passo",
+          "Um nome discreto na fatura do cartão",
+          "Cancele quando quiser, dito com clareza",
+        ],
+      },
+      {
+        title: "Ficar",
+        text: "Os assinantes voltam e gastam mais.",
+        items: [
+          "Uma mensagem de boas-vindas automática",
+          "Agenda de posts, stories e enquetes",
+          "Oferta de pausa ou desconto ao cancelar, e uma mensagem para trazê-los de volta depois",
+        ],
+      },
+    ],
+  },
+  admin: {
+    title: "O painel que o seu cliente usa no dia a dia",
+    lead: "Sem código. Tudo o que um criador faz por dia, em um só painel.",
+    items: [
+      { title: "Painel de receita", text: "Receita mensal, assinantes novos e perdidos, e quantos visitantes viram fãs." },
+      { title: "Upload em massa e agendamento", text: "Arraste uma pasta, marque posts como grátis, bloqueados ou pay-per-view e escolha uma data." },
+      { title: "Prévias automáticas", text: "As prévias borradas são geradas no servidor, então o original nunca chega a quem não assina." },
+      { title: "Marca d'água por assinante", text: "Cada cópia leva o nome do comprador, para rastrear um vazamento." },
+      { title: "Fãs e mensagens", text: "Veja quem gasta mais, envie mensagens para grupos de fãs e venda conteúdo por mensagem." },
+      { title: "Campanhas", text: "Cupons de desconto, links de teste grátis e qual rede social traz fãs pagantes." },
+      { title: "Pagamentos", text: "Stripe, CCBill, Segpay, Verotel ou cripto, conforme o conteúdo." },
+      { title: "Conformidade", text: "Aviso de idade, integração com verificação de idade, consentimento de cookies, páginas legais, rótulos de conteúdo de IA e bloqueio por país." },
+    ],
+  },
+  pricing: {
+    title: "Preços",
+    lead: "Um único pagamento pelo site. Após a entrega, o site e todo o conteúdo pertencem ao criador.",
+    popular: "O mais escolhido",
+    order: "Encomendar",
+    plans: [
+      {
+        id: "starter",
+        name: "Starter",
+        price: "US$ 490",
+        text: "Um template com a sua marca, instalado no seu servidor.",
+        features: ["Qualquer template", "Seu logo, cores e fontes", "Instalação e configuração do domínio"],
+      },
+      {
+        id: "pro",
+        name: "Pro",
+        price: "US$ 1.290",
+        text: "Pronto para receber pagamentos desde o primeiro dia.",
+        features: ["Tudo do Starter", "Provedor de pagamento conectado", "Automações configuradas", "Uma hora de treinamento"],
+      },
+      {
+        id: "custom",
+        name: "Sob medida",
+        price: "a partir de US$ 2.500",
+        text: "Um design feito só para você.",
+        features: ["Tudo do Pro", "Seu próprio design", "Recursos extras sob pedido"],
+      },
+    ],
+    support: "Atualizações e suporte são opcionais: US$ 49 por mês.",
+  },
+  process: {
+    title: "Como funciona a encomenda",
+    steps: [
+      { title: "Briefing", text: "Conte-nos o visual que você quer, seu domínio e como vai receber pagamentos." },
+      { title: "Construção", text: "Metade do valor é paga adiantado e configuramos o template com a sua marca." },
+      { title: "Revisão", text: "Você confere tudo em um link de prévia privado." },
+      { title: "Entrega", text: "Você paga o restante e o site é seu, com acesso total ao painel." },
+    ],
+  },
+  faq: {
+    title: "Perguntas",
+    items: [
+      { q: "De quem é o site?", a: "Do criador. Após a entrega não temos acesso, a menos que ele nos dê." },
+      { q: "Vocês hospedam ou veem o conteúdo?", a: "Não. O criador envia para o próprio servidor e armazenamento. Nunca ficamos com o conteúdo." },
+      {
+        q: "Quais provedores de pagamento funcionam?",
+        a: "Stripe para a maioria dos criadores. A Stripe não permite conteúdo adulto; nesse caso conectamos CCBill, Segpay, Verotel ou cripto. O criador abre a conta de comerciante e nós configuramos.",
+      },
+      {
+        q: "O site pode mostrar conteúdo adulto?",
+        a: "Sim, se a hospedagem e o provedor de pagamento do criador permitirem. O aviso de idade, a integração com verificação de idade e as páginas legais já vêm incluídos. O criador é responsável pelo conteúdo e pela lei local.",
+      },
+      {
+        q: "Quais idiomas um site suporta?",
+        a: "Inglês, alemão, espanhol, português, russo e ucraniano. Cada visitante vê o seu idioma conforme onde está e pode trocar a qualquer momento.",
+      },
+      { q: "Do que preciso para começar?", a: "Um domínio, uma conta de hospedagem, seu logo e algumas fotos. Diremos o que mais for necessário depois de ler o seu briefing." },
+    ],
+  },
+  order: {
+    title: "Quer ter o seu próprio site?",
+    lead: "Envie um briefing: o template de que gosta, seu domínio e como pretende receber pagamentos. Respondemos com um plano e um preço.",
+    email: "Enviar e-mail",
+    telegram: "Falar no Telegram",
+  },
+  listing: {
+    title: "Templates",
+    lead: "Todos os templates compartilham o mesmo motor e o mesmo painel. Escolha o mais próximo do seu estilo; adaptamos cores, fontes e layout à sua marca.",
+    filterLabel: "Filtrar templates",
+    filters: { all: "Todos", dark: "Escuros", light: "Claros" },
+    bestFor: "Ideal para",
+    from: "a partir de",
+    preview: "Demo ao vivo em breve",
+    orderThis: "Encomendar este template",
+  },
+  footer: {
+    note: "As imagens de demonstração são geradas por IA. Todas as personagens são adultas e fictícias.",
+    rights: "Todos os direitos reservados.",
+  },
+} satisfies Dictionary;
+
+export default pt;

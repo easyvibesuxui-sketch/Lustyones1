@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Unlockd showroom
 
-## Getting Started
+The studio's storefront: a landing page and a template listing for subscription-site templates sold to creators.
+Six languages (en, de, es, pt, ru, uk); visitors get theirs automatically.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where to change things
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | File |
+|---|---|
+| Studio name, domain, email, Telegram | `lib/site.ts` |
+| Templates (names, colours, demo creator, price) | `lib/templates.ts` |
+| All page text, per language | `lib/i18n/dictionaries/<lang>.ts` (`en.ts` defines the shape) |
+| Theme colours, fonts, radii | `app/globals.css` (`@theme`) |
+| Country → language map | `lib/i18n/config.ts` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Adding the demo images
 
-## Learn More
+1. Put each template's images in `public/demo/<template-id>/`, e.g. `public/demo/velvet/avatar.jpg`, `cover.jpg`, `01.jpg` … `09.jpg`.
+2. List them in that template's `images` in `lib/templates.ts`:
+   ```ts
+   images: { avatar: "/demo/velvet/avatar.jpg", cover: "/demo/velvet/cover.jpg", feed: ["/demo/velvet/01.jpg", /* … */] },
+   ```
+   Tiles 2 and 6 of the grid are shown unblurred as free posts; the rest are blurred. Only use non-nude images in the showroom.
+   Blurring here is CSS, so the original file is still downloadable.
 
-To learn more about Next.js, take a look at the following resources:
+Until images are added, the previews use abstract colour placeholders.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How the language is chosen
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`proxy.ts` redirects any path without a language prefix (`/`, `/templates`) to `/<lang>/…`, picking in this order:
 
-## Deploy on Vercel
+1. the `NEXT_LOCALE` cookie, set when the visitor picks a language in the switcher;
+2. the visitor's country from the host's header: `x-vercel-ip-country` (Vercel), `cf-ipcountry` (Cloudflare) or `cloudfront-viewer-country` (AWS);
+3. the browser's `Accept-Language`;
+4. English.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Country detection only works behind one of those hosts; locally it falls through to the browser language.
+Countries not in the map (e.g. Georgia, the US) use step 3.

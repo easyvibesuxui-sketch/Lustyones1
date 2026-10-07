@@ -1,0 +1,181 @@
+const en = {
+  meta: {
+    title: "Unlockd — creator websites that turn followers into subscribers",
+    description:
+      "Subscription website templates for creators: locked feed, previews, one-step checkout and an admin panel. On your own domain, with no platform cut.",
+    templatesTitle: "Templates — Unlockd",
+  },
+  nav: {
+    templates: "Templates",
+    how: "How it converts",
+    admin: "Admin",
+    pricing: "Pricing",
+    faq: "FAQ",
+    order: "Order a site",
+    menu: "Menu",
+    close: "Close",
+    language: "Language",
+  },
+  hero: {
+    title: "A creator site of your own, built to turn followers into subscribers.",
+    lead: "Templates with the subscription mechanics fans already know: a locked feed, previews and one-step checkout. On your domain, with no platform cut.",
+    primary: "Browse templates",
+    secondary: "Order a custom site",
+    facts: ["No platform commission", "Your domain and your fan list", "Six languages, picked by location"],
+    unlock: "Unlock the preview",
+    relock: "Lock it again",
+  },
+  mock: {
+    posts: "posts",
+    photos: "photos",
+    videos: "videos",
+    subscribe: "Subscribe for $9.99",
+    locked: "Subscribe to unlock",
+    free: "Free",
+  },
+  showcase: {
+    title: "Four starting points",
+    lead: "Every template runs on the same engine and admin. Pick the look; we fit it to your brand.",
+    seeAll: "See all templates",
+  },
+  templates: {
+    velvet: { description: "Dark, warm and intimate, with gold details.", bestFor: "Glamour, boudoir" },
+    bloom: { description: "Light and soft. Feels like a friend's private page.", bestFor: "Lifestyle, fitness" },
+    neon: { description: "Loud colour, big type, fast scrolling.", bestFor: "Cosplay, gaming, alt" },
+    editorial: { description: "Magazine layouts with room for large photographs.", bestFor: "Photographers, models" },
+  },
+  funnel: {
+    title: "How a visitor becomes a subscriber",
+    lead: "Every template is built around four moments, each with its own mechanics.",
+    steps: [
+      {
+        title: "Arrive",
+        text: "Visitors come from the link in a bio, almost always on a phone.",
+        items: [
+          "Counters show how much is waiting behind the paywall",
+          "One subscribe button that stays within thumb reach",
+          "3- and 6-month bundles at a discount",
+        ],
+      },
+      {
+        title: "Tease",
+        text: "They see enough to want the rest.",
+        items: ["A feed of blurred, locked posts", "A free post every few posts", "Short video previews"],
+      },
+      {
+        title: "Subscribe",
+        text: "Checkout fits on one screen.",
+        items: [
+          "Sign-up and payment in a single step",
+          "A discreet name on the card statement",
+          "Cancel anytime, said plainly",
+        ],
+      },
+      {
+        title: "Stay",
+        text: "Subscribers come back and spend more.",
+        items: [
+          "An automatic welcome message",
+          "A posting schedule, stories and polls",
+          "A pause or discount offer on cancelling, and a win-back message later",
+        ],
+      },
+    ],
+  },
+  admin: {
+    title: "The admin your client runs it from",
+    lead: "No code. Everything a creator does each day, in one panel.",
+    items: [
+      { title: "Revenue dashboard", text: "Monthly income, new and lost subscribers, and how many visitors become fans." },
+      { title: "Bulk upload and scheduling", text: "Drop in a folder, mark posts free, locked or pay-per-view, and pick a date." },
+      { title: "Automatic previews", text: "Blurred previews are made on the server, so the original never reaches a non-subscriber." },
+      { title: "Watermark per subscriber", text: "Every copy carries the buyer's name, so a leak can be traced." },
+      { title: "Fans and messages", text: "See who spends the most, message groups of fans, sell content in messages." },
+      { title: "Campaigns", text: "Discount codes, free-trial links, and which social link brings paying fans." },
+      { title: "Payments", text: "Stripe, CCBill, Segpay, Verotel or crypto, depending on the content." },
+      { title: "Compliance", text: "Age gate, age-verification hooks, cookie consent, legal pages, AI-content labels and country blocking." },
+    ],
+  },
+  pricing: {
+    title: "Pricing",
+    lead: "One payment for the site. After handover, the site and everything on it belongs to the creator.",
+    popular: "Most chosen",
+    order: "Order",
+    plans: [
+      {
+        id: "starter",
+        name: "Starter",
+        price: "$490",
+        text: "A template in your brand, installed on your server.",
+        features: ["Any template", "Your logo, colours and fonts", "Installation and domain setup"],
+      },
+      {
+        id: "pro",
+        name: "Pro",
+        price: "$1,290",
+        text: "Ready to take payments on day one.",
+        features: ["Everything in Starter", "Payment provider connected", "Automations set up", "One hour of training"],
+      },
+      {
+        id: "custom",
+        name: "Custom",
+        price: "from $2,500",
+        text: "A design made only for you.",
+        features: ["Everything in Pro", "Your own design", "Extra features on request"],
+      },
+    ],
+    support: "Updates and support are optional: $49 a month.",
+  },
+  process: {
+    title: "How ordering works",
+    steps: [
+      { title: "Brief", text: "Tell us the look you want, your domain and how you'll take payments." },
+      { title: "Build", text: "Half the price is paid upfront, and we set up the template in your brand." },
+      { title: "Review", text: "You check everything on a private preview link." },
+      { title: "Handover", text: "You pay the rest, and the site is yours with full admin access." },
+    ],
+  },
+  faq: {
+    title: "Questions",
+    items: [
+      { q: "Who owns the site?", a: "The creator. After handover we have no access unless they give it to us." },
+      { q: "Do you host or see the content?", a: "No. The creator uploads to their own server and storage. We never hold their content." },
+      {
+        q: "Which payment providers work?",
+        a: "Stripe for most creators. Stripe doesn't allow adult content, so for that we connect CCBill, Segpay, Verotel or crypto. The creator opens the merchant account and we set it up.",
+      },
+      {
+        q: "Can the site show adult content?",
+        a: "Yes, if the creator's host and payment provider allow it. The age gate, age-verification hooks and legal pages are built in. The creator is responsible for their content and for local law.",
+      },
+      {
+        q: "Which languages does a site support?",
+        a: "English, German, Spanish, Portuguese, Russian and Ukrainian. Visitors see their language based on where they are, and can switch at any time.",
+      },
+      { q: "What do I need to start?", a: "A domain, a hosting account, your logo and some photos. We'll tell you what else is needed after reading your brief." },
+    ],
+  },
+  order: {
+    title: "Ready for a site of your own?",
+    lead: "Send us a brief: the template you like, your domain and how you plan to take payments. We'll reply with a plan and a price.",
+    email: "Email us",
+    telegram: "Message on Telegram",
+  },
+  listing: {
+    title: "Templates",
+    lead: "All templates share the same engine and admin panel. Pick the one closest to your style; we adapt colours, fonts and layout to your brand.",
+    filterLabel: "Filter templates",
+    filters: { all: "All", dark: "Dark", light: "Light" },
+    bestFor: "Best for",
+    from: "from",
+    preview: "Live demo coming soon",
+    orderThis: "Order this template",
+  },
+  footer: {
+    note: "Demo images are AI-generated. All characters are fictional adults.",
+    rights: "All rights reserved.",
+  },
+};
+
+export default en;
+export type Dictionary = typeof en;
