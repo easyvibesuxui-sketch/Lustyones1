@@ -20,7 +20,7 @@ export type Template = {
   creator: { name: string; handle: string; posts: number; photos: number; videos: number };
   price: string;
   theme: TemplateTheme;
-  // Demo images, e.g. "/demo/velvet/01.jpg". Empty until the AI images are added.
+  // Demo images under public/, e.g. "/demo/neon/01.webp". Empty until images are added.
   images: { avatar?: string; cover?: string; feed: string[] };
 };
 
@@ -77,7 +77,11 @@ export const templates: Template[] = [
       tones: ["#FF3DA5", "#6A3DFF", "#3DF2E0"],
       font: "bold",
     },
-    images: { feed: [] },
+    images: {
+      avatar: "/demo/neon/avatar.webp",
+      cover: "/demo/neon/cover.webp",
+      feed: ["/demo/neon/01.webp", "/demo/neon/02.webp", "/demo/neon/03.webp", "/demo/neon/04.webp", "/demo/neon/05.webp", "/demo/neon/06.webp", "/demo/neon/07.webp", "/demo/neon/08.webp", "/demo/neon/09.webp"],
+    },
   },
   {
     id: "editorial",
@@ -95,6 +99,10 @@ export const templates: Template[] = [
       tones: ["#BFB6AA", "#8C8278", "#D8D1C7"],
       font: "display",
     },
-    images: { feed: [] },
+    images: {
+      avatar: "/demo/editorial/avatar.webp",
+      cover: "/demo/editorial/cover.webp",
+      feed: ["/demo/editorial/01.webp", "/demo/editorial/02.webp", "/demo/editorial/03.webp", "/demo/editorial/04.webp", "/demo/editorial/05.webp", "/demo/editorial/06.webp", "/demo/editorial/07.webp", "/demo/editorial/08.webp", "/demo/editorial/09.webp"],
+    },
   },
 ];

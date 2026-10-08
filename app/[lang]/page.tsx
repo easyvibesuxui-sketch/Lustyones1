@@ -17,7 +17,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  const [heroTemplate] = templates;
+  // The hero shows the first template that has real demo images.
+  const heroTemplate = templates.find((t) => t.images.feed.length > 0) ?? templates[0];
 
   return (
     <>

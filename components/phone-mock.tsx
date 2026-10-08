@@ -1,6 +1,7 @@
 import type { Template } from "@/lib/templates";
 import type { Dictionary } from "@/lib/i18n/get-dictionary";
 import type { Locale } from "@/lib/i18n/config";
+import { asset } from "@/lib/asset";
 
 type Props = {
   template: Template;
@@ -49,7 +50,7 @@ export function PhoneMock({ template, mock, lang, unlocked = false, size = "larg
       <div
         className={small ? "h-16" : "h-24"}
         style={{
-          background: images.cover ? `center / cover url(${images.cover})` : tileBackground(theme.tones, 3),
+          background: images.cover ? `center / cover url(${asset(images.cover)})` : tileBackground(theme.tones, 3),
         }}
       />
       <div className={small ? "px-3" : "px-4"}>
@@ -57,7 +58,7 @@ export function PhoneMock({ template, mock, lang, unlocked = false, size = "larg
           className={`-mt-7 rounded-full border-4 ${small ? "size-12" : "size-16"}`}
           style={{
             borderColor: theme.bg,
-            background: images.avatar ? `center / cover url(${images.avatar})` : tileBackground(theme.tones, 7),
+            background: images.avatar ? `center / cover url(${asset(images.avatar)})` : tileBackground(theme.tones, 7),
           }}
         />
         <p className={`mt-2 leading-tight ${fontClass[theme.font]} ${small ? "text-base" : "text-xl"} font-semibold`}>
@@ -93,7 +94,7 @@ export function PhoneMock({ template, mock, lang, unlocked = false, size = "larg
               <div
                 className="absolute inset-0 transition-[filter,transform] duration-700 ease-out"
                 style={{
-                  background: image ? `center / cover url(${image})` : tileBackground(theme.tones, i),
+                  background: image ? `center / cover url(${asset(image)})` : tileBackground(theme.tones, i),
                   filter: locked ? "blur(10px) saturate(1.2)" : "none",
                   transform: locked ? "scale(1.2)" : "scale(1)",
                 }}
