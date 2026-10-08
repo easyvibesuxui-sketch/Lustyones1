@@ -163,6 +163,19 @@ const pt = {
     email: "Enviar e-mail",
     telegram: "Falar no Telegram",
   },
+  home: {
+    more: "Saiba mais",
+  },
+  dashboard: {
+    title: "Painel",
+    live: "Ao vivo",
+    revenue: "Receita deste mês",
+    subscribers: "Assinantes ativos",
+    conversion: "Visitantes que assinam",
+    chart: "Receita, últimas 12 semanas",
+    activity: "Mais recentes",
+    events: { sub: "Novo assinante", tip: "Gorjeta", ppv: "Pay-per-view desbloqueado" },
+  },
   listing: {
     title: "Templates",
     lead: "Todos os templates compartilham o mesmo motor e o mesmo painel. Escolha o mais próximo do seu estilo; adaptamos cores, fontes e layout à sua marca.",

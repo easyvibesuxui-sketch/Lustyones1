@@ -161,6 +161,19 @@ const en = {
     email: "Email us",
     telegram: "Message on Telegram",
   },
+  home: {
+    more: "Learn more",
+  },
+  dashboard: {
+    title: "Dashboard",
+    live: "Live",
+    revenue: "Revenue this month",
+    subscribers: "Active subscribers",
+    conversion: "Visitors who subscribe",
+    chart: "Revenue, last 12 weeks",
+    activity: "Latest",
+    events: { sub: "New subscriber", tip: "Tip", ppv: "Pay-per-view unlocked" },
+  },
   listing: {
     title: "Templates",
     lead: "All templates share the same engine and admin panel. Pick the one closest to your style; we adapt colours, fonts and layout to your brand.",

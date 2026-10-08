@@ -163,6 +163,19 @@ const es = {
     email: "Escríbenos un email",
     telegram: "Escríbenos por Telegram",
   },
+  home: {
+    more: "Saber más",
+  },
+  dashboard: {
+    title: "Panel",
+    live: "En vivo",
+    revenue: "Ingresos este mes",
+    subscribers: "Suscriptores activos",
+    conversion: "Visitantes que se suscriben",
+    chart: "Ingresos, últimas 12 semanas",
+    activity: "Lo último",
+    events: { sub: "Nuevo suscriptor", tip: "Propina", ppv: "Pago por ver desbloqueado" },
+  },
   listing: {
     title: "Plantillas",
     lead: "Todas las plantillas comparten el mismo motor y el mismo panel. Elige la más cercana a tu estilo; adaptamos colores, tipografías y diseño a tu marca.",

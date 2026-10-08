@@ -10,7 +10,7 @@ export function TemplateCard({ template, dict, lang }: Props) {
   const copy = dict.templates[template.id];
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-(--radius-panel) border border-plum-line bg-plum">
+    <article className="reveal group flex flex-col overflow-hidden rounded-(--radius-panel) border border-plum-line bg-plum transition duration-300 hover:-translate-y-1 hover:border-lipstick/60 hover:shadow-[0_30px_80px_-30px_rgba(216,30,79,0.6)]">
       <div
         className="px-6 py-8"
         style={{ background: `linear-gradient(180deg, ${template.theme.tones[0]}55, transparent 70%)` }}
@@ -30,14 +30,14 @@ export function TemplateCard({ template, dict, lang }: Props) {
         </p>
         <div className="mt-auto flex flex-wrap gap-2 pt-3">
           <Link
-            href={`/${lang}#order`}
-            className="rounded-(--radius-control) bg-lipstick px-4 py-2.5 text-sm font-semibold text-white hover:bg-lipstick-deep"
+            href={`/${lang}/order`}
+            className="rounded-(--radius-control) bg-lipstick px-4 py-2.5 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-lipstick-deep"
           >
             {dict.listing.orderThis}
           </Link>
           <Link
             href={`/${lang}/demo/${template.id}`}
-            className="rounded-(--radius-control) border border-blush/40 px-4 py-2.5 text-sm font-medium text-blush hover:border-blush hover:bg-blush/10"
+            className="rounded-(--radius-control) border border-blush/40 px-4 py-2.5 text-sm font-medium text-blush transition hover:-translate-y-0.5 hover:border-blush hover:bg-blush/10"
           >
             {dict.listing.preview}
           </Link>

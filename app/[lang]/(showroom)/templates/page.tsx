@@ -4,6 +4,8 @@ import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { templates } from "@/lib/templates";
 import { TemplateGrid } from "@/components/template-grid";
+import { CtaBand } from "@/components/cta-band";
+import { PageHero, PageShell } from "@/components/page-shell";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/templates">): Promise<Metadata> {
   const { lang } = await params;
@@ -24,12 +26,12 @@ export default async function TemplatesPage({ params }: PageProps<"/[lang]/templ
   const dict = await getDictionary(lang);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-      <h1 className="font-display text-5xl font-semibold leading-none text-blush sm:text-7xl">{dict.listing.title}</h1>
-      <p className="mt-5 max-w-2xl text-lg text-haze">{dict.listing.lead}</p>
-      <div className="mt-10">
+    <PageShell>
+      <PageHero title={dict.listing.title} lead={dict.listing.lead} />
+      <div className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <TemplateGrid templates={templates} dict={dict} lang={lang} />
       </div>
-    </div>
+      <CtaBand lang={lang} dict={dict} />
+    </PageShell>
   );
 }

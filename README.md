@@ -1,6 +1,7 @@
 # Unlockd showroom
 
-The studio's storefront: a landing page and a template listing for subscription-site templates sold to creators.
+The studio's storefront for subscription-site templates sold to creators. Separate pages under `app/[lang]/(showroom)/`:
+home, `templates`, `how-it-works`, `admin`, `pricing`, `faq` and `order` (menu order is in `lib/pages.ts`).
 Six languages (en, de, es, pt, ru, uk); visitors get theirs automatically. Hosted on GitHub Pages.
 
 ## Run
@@ -19,7 +20,15 @@ npm run build   # static site in out/
 | Templates (names, colours, demo creator, price) | `lib/templates.ts` |
 | All page text, per language | `lib/i18n/dictionaries/<lang>.ts` (`en.ts` defines the shape) |
 | Theme colours, fonts, radii | `app/globals.css` (`@theme`) |
+| Animations and page transitions | `app/globals.css` (bottom), `components/page-shell.tsx` |
 | Country → language map | `lib/i18n/config.ts` |
+
+## Motion
+
+Pages rise in on load (`.animate-rise`), sections fade up as they scroll into view (`.reveal`, CSS scroll-driven
+animations; browsers without them just show the content), and moving between pages crossfades through React's
+`<ViewTransition>` while the header stays still. The hero unlocks and relocks its preview by itself until the visitor
+presses the button. Everything stops for visitors who ask their system for reduced motion.
 
 ## Adding the demo images
 

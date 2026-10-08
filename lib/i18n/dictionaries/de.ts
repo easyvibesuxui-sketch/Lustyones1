@@ -163,6 +163,19 @@ const de = {
     email: "E-Mail schreiben",
     telegram: "Auf Telegram schreiben",
   },
+  home: {
+    more: "Mehr erfahren",
+  },
+  dashboard: {
+    title: "Dashboard",
+    live: "Live",
+    revenue: "Umsatz diesen Monat",
+    subscribers: "Aktive Abonnenten",
+    conversion: "Besucher, die abonnieren",
+    chart: "Umsatz, letzte 12 Wochen",
+    activity: "Neueste",
+    events: { sub: "Neuer Abonnent", tip: "Trinkgeld", ppv: "Pay-per-View freigeschaltet" },
+  },
   listing: {
     title: "Vorlagen",
     lead: "Alle Vorlagen teilen dieselbe Engine und dasselbe Admin-Panel. Wähle die, die deinem Stil am nächsten ist; Farben, Schriften und Layout passen wir an deine Marke an.",
