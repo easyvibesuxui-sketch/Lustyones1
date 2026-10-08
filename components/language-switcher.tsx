@@ -1,7 +1,8 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { localeCookie, localeNames, locales, type Locale } from "@/lib/i18n/config";
+import { localeNames, locales, type Locale } from "@/lib/i18n/config";
+import { saveLocale } from "@/lib/i18n/detect-locale";
 
 type Props = { lang: Locale; label: string };
 
@@ -10,8 +11,8 @@ export function LanguageSwitcher({ lang, label }: Props) {
   const pathname = usePathname();
 
   function change(next: Locale) {
-    // Remember the choice for a year so location detection doesn't override it.
-    document.cookie = `${localeCookie}=${next}; path=/; max-age=31536000; samesite=lax`;
+    // Remember the choice so location detection doesn't override it next time.
+    saveLocale(next);
     const rest = pathname.replace(/^\/[^/]+/, "");
     router.push(`/${next}${rest}${window.location.hash}`);
   }

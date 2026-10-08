@@ -27,6 +27,9 @@ const unbounded = Unbounded({
   weight: ["600"],
 });
 
+// Only the six languages exist; anything else is a 404 (required for static export).
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }

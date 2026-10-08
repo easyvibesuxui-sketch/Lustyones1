@@ -1,14 +1,14 @@
 # Unlockd showroom
 
 The studio's storefront: a landing page and a template listing for subscription-site templates sold to creators.
-Six languages (en, de, es, pt, ru, uk); visitors get theirs automatically.
+Six languages (en, de, es, pt, ru, uk); visitors get theirs automatically. Hosted on GitHub Pages.
 
 ## Run
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build && npm start
+npm run build   # static site in out/
 ```
 
 ## Where to change things
@@ -35,12 +35,20 @@ Until images are added, the previews use abstract colour placeholders.
 
 ## How the language is chosen
 
-`proxy.ts` redirects any path without a language prefix (`/`, `/templates`) to `/<lang>/…`, picking in this order:
+The site is static (GitHub Pages), so the choice happens in the browser.
+`/` and `/templates` are small redirect pages (`app/(redirect)/`) that send the visitor to `/<lang>/…`, picking in this order (`lib/i18n/detect-locale.ts`):
 
-1. the `NEXT_LOCALE` cookie, set when the visitor picks a language in the switcher;
-2. the visitor's country from the host's header: `x-vercel-ip-country` (Vercel), `cf-ipcountry` (Cloudflare) or `cloudfront-viewer-country` (AWS);
-3. the browser's `Accept-Language`;
-4. English.
+1. the language they picked earlier in the switcher (saved in `localStorage`);
+2. their country by IP, from the free `api.country.is` service (1.5 s timeout; the visitor's IP is sent to that service);
+3. their time zone;
+4. their browser language;
+5. English.
 
-Country detection only works behind one of those hosts; locally it falls through to the browser language.
-Countries not in the map (e.g. Georgia, the US) use step 3.
+Countries and time zones not in the maps in `lib/i18n/config.ts` (e.g. Georgia, the US) fall through to the browser language.
+
+## Deploying
+
+Every push to `claude/nifty-ritchie-wp6v2n` or `main` runs `.github/workflows/pages.yml`, which builds the static site (`out/`) and publishes it to
+https://easyvibesuxui-sketch.github.io/Lustyones/
+
+The repository's Pages source must be set to **GitHub Actions** (Settings → Pages → Build and deployment → Source).
