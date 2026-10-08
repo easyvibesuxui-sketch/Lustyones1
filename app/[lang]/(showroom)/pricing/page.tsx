@@ -23,7 +23,7 @@ export default async function PricingPage({ params }: PageProps<"/[lang]/pricing
 
   return (
     <PageShell>
-      <PageHero title={dict.pricing.title} lead={dict.pricing.lead} />
+      <PageHero title={dict.pricing.title} lead={dict.pricing.lead} number={4} backdrop="/demo/bloom/bg.webp" />
 
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <div className="grid gap-6 lg:grid-cols-3">
@@ -32,20 +32,20 @@ export default async function PricingPage({ params }: PageProps<"/[lang]/pricing
             return (
               <div key={plan.id} className="animate-rise" style={delay(200 + i * 120)}>
                 <div
-                  className={`relative flex h-full flex-col rounded-(--radius-panel) border p-7 transition duration-300 hover:-translate-y-2 ${
+                  className={`relative flex h-full flex-col rounded-(--radius-panel) border p-7 transition duration-300 hover:-translate-y-1 ${
                     featured
-                      ? "border-accent bg-surface shadow-[0_30px_90px_-30px_rgba(227,23,91,0.8)]"
+                      ? "border-accent bg-surface shadow-[0_30px_90px_-40px_rgba(201,163,82,0.7)]"
                       : "border-line bg-surface/40 hover:border-heading/50"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <h2 className="text-lg font-semibold text-ink">{plan.name}</h2>
+                    <h2 className="font-heading text-xl font-bold uppercase tracking-widest text-ink">{plan.name}</h2>
                     {featured && (
-                      <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">{dict.pricing.popular}</span>
+                      <span className="rounded-(--radius-control) bg-accent px-2.5 py-1 font-heading text-xs font-bold uppercase tracking-widest text-night">{dict.pricing.popular}</span>
                     )}
                   </div>
-                  <p className="mt-4 font-heading text-4xl font-semibold tracking-tight text-heading">{plan.price}</p>
-                  <p className="mt-3 text-muted">{plan.text}</p>
+                  <p className="mt-5 font-heading text-5xl font-bold uppercase text-heading">{plan.price}</p>
+                  <p className="mt-3 font-body text-muted">{plan.text}</p>
                   <ul className="mb-8 mt-6 flex flex-col gap-3 border-t border-line pt-6 text-sm text-ink">
                     {plan.features.map((f) => (
                       <li key={f} className="flex gap-2.5">

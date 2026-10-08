@@ -22,7 +22,7 @@ export default async function OrderPage({ params }: PageProps<"/[lang]/order">) 
 
   return (
     <PageShell>
-      <PageHero title={dict.order.title} lead={dict.order.lead}>
+      <PageHero title={dict.order.title} lead={dict.order.lead} number={6} backdrop="/showroom/intro-bg.webp">
         <div className="animate-rise mt-9 flex flex-col gap-3 sm:flex-row" style={delay(240)}>
           <a href={`mailto:${site.contact.email}`} className={`group ${primaryButton}`}>
             {dict.order.email}
@@ -40,13 +40,13 @@ export default async function OrderPage({ params }: PageProps<"/[lang]/order">) 
           {dict.process.steps.map((step, i) => (
             <li
               key={step.title}
-              className="reveal relative overflow-hidden rounded-(--radius-panel) border border-line bg-surface/50 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/60"
+              className="reveal relative overflow-hidden border-t border-line pt-6 transition-colors duration-300 hover:border-accent"
             >
-              <span aria-hidden="true" className="absolute -right-2 -top-6 font-heading text-[6rem] font-semibold leading-none text-accent-soft/15">
+              <span aria-hidden="true" className="numeral block text-7xl">
                 {i + 1}
               </span>
-              <p className="relative font-semibold text-heading">{step.title}</p>
-              <p className="relative mt-2 text-ink">{step.text}</p>
+              <p className="relative mt-4 font-heading text-xl font-bold uppercase tracking-wide text-heading">{step.title}</p>
+              <p className="relative mt-2 font-body text-ink">{step.text}</p>
             </li>
           ))}
         </ol>

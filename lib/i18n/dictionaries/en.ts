@@ -163,6 +163,9 @@ const en = {
   },
   home: {
     more: "Learn more",
+    screensTitle: "One site. Every screen.",
+    screensLead: "Fans arrive on their phones and stay on their laptops. Every template is built for both, with the same locked feed and one-step checkout.",
+    insideTitle: "Inside the studio",
   },
   dashboard: {
     title: "Dashboard",

@@ -165,6 +165,9 @@ const es = {
   },
   home: {
     more: "Saber más",
+    screensTitle: "Una web. Todas las pantallas.",
+    screensLead: "Los fans llegan desde el móvil y se quedan en el portátil. Cada plantilla está hecha para ambos, con el mismo feed bloqueado y pago en un paso.",
+    insideTitle: "Dentro del estudio",
   },
   dashboard: {
     title: "Panel",

@@ -15,6 +15,7 @@ export default async function ShowroomLayout({ children, params }: LayoutProps<"
       <Header lang={lang} dict={dict} />
       <main className="flex-1">{children}</main>
       <Footer lang={lang} dict={dict} />
+      <div className="grain" aria-hidden="true" />
     </div>
   );
 }

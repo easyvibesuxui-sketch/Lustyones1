@@ -24,26 +24,23 @@ export default async function HowItWorksPage({ params }: PageProps<"/[lang]/how-
 
   return (
     <PageShell>
-      <PageHero title={dict.funnel.title} lead={dict.funnel.lead} />
+      <PageHero title={dict.funnel.title} lead={dict.funnel.lead} number={2} backdrop="/demo/neon/bg.webp" />
 
-      <section className="mx-auto grid max-w-6xl gap-16 px-4 pb-24 pt-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto]">
-        {/* A real sequence, so the steps are numbered and joined by a line */}
-        <ol className="relative flex flex-col gap-6 before:absolute before:bottom-8 before:left-7 before:top-8 before:w-px before:bg-gradient-to-b before:from-accent before:via-line before:to-transparent">
+      <section className="mx-auto grid max-w-6xl gap-16 px-5 pb-24 pt-6 sm:px-10 lg:grid-cols-[minmax(0,1fr)_auto]">
+        {/* A real sequence, so the steps are numbered */}
+        <ol className="flex flex-col">
           {dict.funnel.steps.map((step, i) => (
-            <li key={step.title} className="reveal relative flex gap-6">
-              <span
-                aria-hidden="true"
-                className="relative grid size-14 shrink-0 place-items-center rounded-full border border-accent/60 bg-night font-heading text-xl font-semibold text-heading shadow-[0_0_30px_-6px_rgba(227,23,91,0.8)]"
-              >
-                {i + 1}
+            <li key={step.title} className="reveal grid gap-4 border-t border-line py-10 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-8">
+              <span aria-hidden="true" className="numeral text-8xl">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="flex-1 rounded-(--radius-panel) border border-line bg-surface/60 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/60">
-                <h2 className="text-2xl font-semibold text-ink">{step.title}</h2>
-                <p className="mt-2 text-muted">{step.text}</p>
-                <ul className="mt-5 flex flex-col gap-3 border-t border-line pt-5 text-ink">
+              <div>
+                <h2 className="font-heading text-4xl font-bold uppercase leading-none text-heading sm:text-5xl">{step.title}</h2>
+                <p className="mt-3 font-body text-lg text-muted">{step.text}</p>
+                <ul className="mt-6 flex flex-col gap-3 font-body text-ink">
                   {step.items.map((item) => (
                     <li key={item} className="flex gap-3">
-                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
+                      <span className="mt-2.5 size-1.5 shrink-0 bg-accent" aria-hidden="true" />
                       {item}
                     </li>
                   ))}

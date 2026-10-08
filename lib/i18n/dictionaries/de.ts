@@ -165,6 +165,9 @@ const de = {
   },
   home: {
     more: "Mehr erfahren",
+    screensTitle: "Eine Seite. Jeder Bildschirm.",
+    screensLead: "Fans kommen übers Handy und bleiben am Laptop. Jedes Template ist für beides gebaut, mit demselben gesperrten Feed und Checkout in einem Schritt.",
+    insideTitle: "Einblicke ins Studio",
   },
   dashboard: {
     title: "Dashboard",

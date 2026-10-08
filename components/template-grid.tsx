@@ -23,7 +23,7 @@ export function TemplateGrid({ templates, dict, lang }: Props) {
             type="button"
             aria-pressed={filter === f}
             onClick={() => setFilter(f)}
-            className="rounded-(--radius-control) border border-line px-4 py-2 text-sm text-muted hover:border-muted aria-pressed:border-heading aria-pressed:bg-heading aria-pressed:text-night"
+            className="rounded-(--radius-control) border border-line px-4 py-2 font-heading text-sm uppercase tracking-widest text-muted hover:border-muted aria-pressed:border-heading aria-pressed:bg-heading aria-pressed:text-night"
           >
             {dict.listing.filters[f]}
           </button>

@@ -165,6 +165,9 @@ const pt = {
   },
   home: {
     more: "Saiba mais",
+    screensTitle: "Um site. Todas as telas.",
+    screensLead: "Os fãs chegam pelo celular e ficam no notebook. Cada template é feito para os dois, com o mesmo feed bloqueado e pagamento em um passo.",
+    insideTitle: "Por dentro do estúdio",
   },
   dashboard: {
     title: "Painel",

@@ -19,9 +19,16 @@ npm run build   # static site in out/
 | Studio name, domain, email, Telegram | `lib/site.ts` |
 | Templates (names, colours, demo creator, price) | `lib/templates.ts` |
 | All page text, per language | `lib/i18n/dictionaries/<lang>.ts` (`en.ts` defines the shape) |
-| Theme colours, fonts (showroom: Unbounded + Manrope), radii | `app/globals.css` (`@theme`) |
+| Theme colours, fonts (showroom: Fira Sans Extra Condensed + Lora, outlined numerals in Cormorant), radii | `app/globals.css` (`@theme`) |
 | Animations and page transitions | `app/globals.css` (bottom), `components/page-shell.tsx` |
 | Country → language map | `lib/i18n/config.ts` |
+
+## Look
+
+Cinematic and dark: each home-page chapter is a blurred photo with the same photo shown sharp through a keyhole
+(`components/chapter.tsx`, `components/keyhole.tsx`), big outlined numerals, film grain over everything, and a full-screen
+"Menu" (`components/menu-overlay.tsx`). Each template's keyhole photo and backdrop are `scene.webp` and `bg.webp` in
+`public/demo/<template>/`; the opening chapter's are in `public/showroom/`.
 
 ## Motion
 
