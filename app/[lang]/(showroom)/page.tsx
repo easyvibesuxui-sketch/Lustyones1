@@ -4,7 +4,7 @@ import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { templates } from "@/lib/templates";
 import { site } from "@/lib/site";
-import { PhoneMock } from "@/components/phone-mock";
+import { DeviceDuo } from "@/components/device-duo";
 import { UnlockDemo } from "@/components/unlock-demo";
 
 const sectionTitle = "font-display text-4xl font-semibold leading-tight text-blush sm:text-5xl";
@@ -23,9 +23,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-[1fr_auto] lg:pt-20">
+      <section className="mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:pt-20">
         <div className="max-w-2xl">
-          <h1 className="font-display text-5xl font-semibold leading-[1.02] text-blush sm:text-6xl lg:text-7xl">
+          <h1 className="font-display text-5xl font-semibold leading-[1.02] text-blush sm:text-6xl">
             {dict.hero.title}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-haze">{dict.hero.lead}</p>
@@ -51,6 +51,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <UnlockDemo
           template={heroTemplate}
           mock={dict.mock}
+          planCopy={dict.demo.plans}
           lang={lang}
           labels={{ unlock: dict.hero.unlock, relock: dict.hero.relock }}
         />
@@ -68,11 +69,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               {dict.showcase.seeAll}
             </Link>
           </div>
-          <ul className="-mx-4 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
+          <ul className="mt-12 grid gap-x-10 gap-y-14 md:grid-cols-2">
             {templates.map((t) => (
-              <li key={t.id} className="shrink-0 snap-start">
-                <Link href={`/${lang}/demo/${t.id}`} className="group block rounded-(--radius-device)">
-                  <PhoneMock template={t} mock={dict.mock} lang={lang} size="small" />
+              <li key={t.id}>
+                <Link href={`/${lang}/demo/${t.id}`} className="group block rounded-xl">
+                  <DeviceDuo template={t} mock={dict.mock} planCopy={dict.demo.plans} lang={lang} />
                   <p className="mt-4 font-display text-2xl font-semibold text-blush group-hover:underline">{t.name}</p>
                   <p className="text-sm text-haze">{dict.templates[t.id].bestFor}</p>
                 </Link>

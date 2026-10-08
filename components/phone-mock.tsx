@@ -12,22 +12,22 @@ type Props = {
 };
 
 // Posts shown free in the preview grid; the rest are locked.
-const freeTiles = new Set([1, 5]);
-const tileCount = 9;
+export const freeTiles = new Set([1, 5]);
+export const tileCount = 9;
 
-const fontClass = { display: "font-display", body: "font-sans", bold: "font-wide" } as const;
+export const fontClass = { display: "font-display", body: "font-sans", bold: "font-wide" } as const;
 
 // Abstract stand-ins for photos until the demo images are added.
-function tileBackground(tones: [string, string, string], i: number) {
+export function tileBackground(tones: [string, string, string], i: number) {
   const [a, b, c] = tones;
   const x = 20 + ((i * 37) % 60);
   const y = 25 + ((i * 53) % 50);
   return `radial-gradient(circle at ${x}% ${y}%, ${c} 0%, transparent 45%), radial-gradient(circle at ${100 - x}% ${100 - y}%, ${b} 0%, transparent 55%), ${a}`;
 }
 
-function LockIcon() {
+export function LockIcon({ size = 18 }: { size?: number | string }) {
   return (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg viewBox="0 0 24 24" width={size} height={size} aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2">
       <rect x="5" y="11" width="14" height="10" rx="2" />
       <path d="M8 11V8a4 4 0 0 1 8 0v3" />
     </svg>

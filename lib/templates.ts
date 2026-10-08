@@ -24,6 +24,18 @@ export type Template = {
   images: { avatar?: string; cover?: string; feed: string[] };
 };
 
+export type PlanId = "month" | "three" | "six";
+
+// The subscription offer every demo creator page shows.
+export const plans: { id: PlanId; months: number; price: number; save: number }[] = [
+  { id: "month", months: 1, price: 9.99, save: 0 },
+  { id: "three", months: 3, price: 25.47, save: 15 },
+  { id: "six", months: 6, price: 44.95, save: 25 },
+];
+
+// Templates whose feed uses two wide columns instead of three.
+export const twoColumnFeed = new Set<TemplateId>(["bloom", "editorial"]);
+
 export const templates: Template[] = [
   {
     id: "velvet",

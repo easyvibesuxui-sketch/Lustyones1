@@ -2,7 +2,7 @@
 
 import { useCallback, useState, useSyncExternalStore, type CSSProperties, type FormEvent } from "react";
 import Link from "next/link";
-import type { Template } from "@/lib/templates";
+import { plans, twoColumnFeed, type PlanId, type Template } from "@/lib/templates";
 import type { Dictionary } from "@/lib/i18n/get-dictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { asset } from "@/lib/asset";
@@ -12,14 +12,8 @@ type Props = { template: Template; lang: Locale; t: Dictionary["demo"]; mock: Di
 
 type PostKind = "free" | "locked" | "ppv";
 type Post = { image: string; kind: PostKind; photos: number; videos: number; daysAgo: number; pinned?: boolean };
-type PlanId = "month" | "three" | "six";
 type Checkout = { kind: "sub"; plan: PlanId } | { kind: "ppv"; post: number } | null;
 
-const plans: { id: PlanId; months: number; price: number; save: number }[] = [
-  { id: "month", months: 1, price: 9.99, save: 0 },
-  { id: "three", months: 3, price: 25.47, save: 15 },
-  { id: "six", months: 6, price: 44.95, save: 25 },
-];
 const ppvPrice = 14.99;
 const tipAmounts = [5, 10, 20];
 const tipGoal = 500;
@@ -28,7 +22,6 @@ const ageKey = "demo-age-ok";
 // Which feed position is free, pay-per-view or for subscribers only.
 const kinds: PostKind[] = ["locked", "free", "locked", "ppv", "locked", "free", "locked", "locked", "locked"];
 const fontVar = { display: "var(--font-display)", body: "var(--font-sans)", bold: "var(--font-wide)" } as const;
-const twoColumn = new Set(["bloom", "editorial"]);
 
 function fill(text: string, vars: Record<string, string | number>) {
   return text.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ""));
@@ -322,7 +315,7 @@ export function DemoSite({ template, lang, t, mock }: Props) {
 
         <div className="mt-8 grid gap-8 pb-16 lg:grid-cols-[1fr_320px]">
           {/* Feed */}
-          <div className={`grid content-start gap-4 ${twoColumn.has(template.id) ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2 sm:grid-cols-3"}`}>
+          <div className={`grid content-start gap-4 ${twoColumnFeed.has(template.id) ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-2 sm:grid-cols-3"}`}>
             {posts.map((post, i) => {
               const open = post.kind === "free" || (post.kind === "locked" && subscribed) || (post.kind === "ppv" && unlocked.has(i));
               return (

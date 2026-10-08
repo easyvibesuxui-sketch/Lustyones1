@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { PhoneMock } from "./phone-mock";
+import { DeviceDuo } from "./device-duo";
 import type { Template } from "@/lib/templates";
 import type { Dictionary } from "@/lib/i18n/get-dictionary";
 import type { Locale } from "@/lib/i18n/config";
@@ -12,12 +12,10 @@ export function TemplateCard({ template, dict, lang }: Props) {
   return (
     <article className="flex flex-col overflow-hidden rounded-(--radius-panel) border border-plum-line bg-plum">
       <div
-        className="flex justify-center px-6 pt-8"
+        className="px-6 py-8"
         style={{ background: `linear-gradient(180deg, ${template.theme.tones[0]}55, transparent 70%)` }}
       >
-        <div className="h-[340px] overflow-hidden">
-          <PhoneMock template={template} mock={dict.mock} lang={lang} size="small" />
-        </div>
+        <DeviceDuo template={template} mock={dict.mock} planCopy={dict.demo.plans} lang={lang} />
       </div>
       <div className="flex flex-1 flex-col gap-3 border-t border-plum-line p-6">
         <div className="flex items-baseline justify-between gap-4">
