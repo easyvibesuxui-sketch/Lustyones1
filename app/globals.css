@@ -2,15 +2,23 @@
 
 /* The showroom theme. Every colour, font and radius on the site comes from here. */
 @theme {
-  --color-aubergine: #240c1f; /* page background */
-  --color-plum: #3a1532; /* raised surfaces */
-  --color-plum-line: #57264c; /* borders on plum and aubergine */
-  --color-blush: #f6d3dd; /* headlines */
-  --color-ink: #fbeff2; /* body text */
-  --color-haze: #c9a9b8; /* secondary text */
-  --color-lipstick: #d81e4f; /* primary actions */
-  --color-lipstick-deep: #b5163f; /* primary action hover */
+  --color-night: #09080d; /* page background */
+  --color-surface: #16131d; /* raised surfaces */
+  --color-line: #2c2738; /* borders on night and surface */
+  --color-heading: #fff3ea; /* headlines */
+  --color-ink: #ece8f1; /* body text */
+  --color-muted: #a49fb2; /* secondary text */
+  --color-accent: #e3175b; /* primary actions; white text on it */
+  --color-accent-deep: #bd0f4a; /* primary action hover */
+  --color-accent-soft: #ff6b93; /* accent text and icons on dark */
+  --color-violet: #7c5cff; /* second glow colour */
+  --color-amber: #ff9a3c; /* third glow colour */
 
+  /* The showroom's own type. */
+  --font-heading: var(--font-unbounded), system-ui, sans-serif;
+  --font-body: var(--font-manrope), system-ui, sans-serif;
+
+  /* Fonts the template previews and demos use. */
   --font-display: var(--font-cormorant), "Times New Roman", serif;
   --font-sans: var(--font-onest), system-ui, sans-serif;
   --font-wide: var(--font-unbounded), system-ui, sans-serif;
@@ -47,18 +55,20 @@ html {
 }
 
 body {
-  background: var(--color-aubergine);
+  background-color: var(--color-night);
+  background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 26px 26px;
   color: var(--color-ink);
   font-family: var(--font-sans);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-blush);
+  outline: 2px solid var(--color-accent-soft);
   outline-offset: 3px;
 }
 
 ::selection {
-  background: var(--color-lipstick);
+  background: var(--color-accent);
   color: #fff;
 }
 
@@ -134,7 +144,17 @@ body {
 
 /* Headline text with a slow light sweep. */
 .text-shimmer {
-  background: linear-gradient(90deg, var(--color-blush) 0%, #ff9cb8 25%, var(--color-blush) 50%, #ff9cb8 75%, var(--color-blush) 100%) 0 0 / 200% 100%;
+  background: linear-gradient(
+      90deg,
+      var(--color-heading) 0%,
+      var(--color-accent-soft) 25%,
+      var(--color-amber) 38%,
+      var(--color-heading) 50%,
+      var(--color-accent-soft) 75%,
+      var(--color-amber) 88%,
+      var(--color-heading) 100%
+    )
+    0 0 / 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

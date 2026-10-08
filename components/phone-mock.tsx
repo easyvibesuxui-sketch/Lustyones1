@@ -41,7 +41,7 @@ export function PhoneMock({ template, mock, lang, unlocked = false, size = "larg
 
   return (
     <div
-      className={`relative overflow-hidden rounded-(--radius-device) border border-plum-line shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)] ${
+      className={`relative overflow-hidden rounded-(--radius-device) border border-line shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)] ${
         small ? "h-[440px] w-[220px]" : "h-[580px] w-[290px]"
       }`}
       style={{ background: theme.bg, color: theme.text }}

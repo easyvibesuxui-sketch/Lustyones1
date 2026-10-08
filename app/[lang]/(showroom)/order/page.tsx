@@ -40,12 +40,12 @@ export default async function OrderPage({ params }: PageProps<"/[lang]/order">) 
           {dict.process.steps.map((step, i) => (
             <li
               key={step.title}
-              className="reveal relative overflow-hidden rounded-(--radius-panel) border border-plum-line bg-plum/50 p-6 transition duration-300 hover:-translate-y-1 hover:border-lipstick/60"
+              className="reveal relative overflow-hidden rounded-(--radius-panel) border border-line bg-surface/50 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/60"
             >
-              <span aria-hidden="true" className="absolute -right-2 -top-6 font-display text-[7rem] font-semibold leading-none text-lipstick/15">
+              <span aria-hidden="true" className="absolute -right-2 -top-6 font-heading text-[6rem] font-semibold leading-none text-accent-soft/15">
                 {i + 1}
               </span>
-              <p className="relative font-semibold text-blush">{step.title}</p>
+              <p className="relative font-semibold text-heading">{step.title}</p>
               <p className="relative mt-2 text-ink">{step.text}</p>
             </li>
           ))}

@@ -24,7 +24,7 @@ export function DesktopMock({ template, mock, planCopy, lang, unlocked = false }
 
   return (
     <div
-      className="overflow-hidden rounded-xl border border-plum-line bg-plum shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)]"
+      className="overflow-hidden rounded-xl border border-line bg-surface shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7)]"
       aria-hidden="true"
     >
       <div className="@container">
@@ -32,11 +32,11 @@ export function DesktopMock({ template, mock, planCopy, lang, unlocked = false }
         <div className="flex items-center" style={{ height: u(44), padding: `0 ${u(18)}`, gap: u(18) }}>
           <div className="flex" style={{ gap: u(8), width: u(60) }}>
             {[0, 1, 2].map((i) => (
-              <span key={i} className="rounded-full bg-plum-line" style={{ width: u(12), height: u(12) }} />
+              <span key={i} className="rounded-full bg-line" style={{ width: u(12), height: u(12) }} />
             ))}
           </div>
           <div
-            className="mx-auto flex flex-1 items-center justify-center rounded-full bg-aubergine text-haze"
+            className="mx-auto flex flex-1 items-center justify-center rounded-full bg-night text-muted"
             style={{ maxWidth: u(460), height: u(26), gap: u(6), fontSize: u(13) }}
           >
             <LockIcon size={u(12)} />

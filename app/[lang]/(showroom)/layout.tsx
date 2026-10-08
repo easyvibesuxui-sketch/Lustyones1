@@ -11,10 +11,10 @@ export default async function ShowroomLayout({ children, params }: LayoutProps<"
   const dict = await getDictionary(lang);
 
   return (
-    <>
+    <div className="flex flex-1 flex-col font-body">
       <Header lang={lang} dict={dict} />
       <main className="flex-1">{children}</main>
       <Footer lang={lang} dict={dict} />
-    </>
+    </div>
   );
 }

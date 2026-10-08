@@ -38,7 +38,7 @@ export function UnlockDemo({ template, mock, planCopy, lang, labels }: Props) {
           setUnlocked((u) => !u);
         }}
         aria-pressed={unlocked}
-        className="rounded-(--radius-control) border border-blush/40 px-5 py-2.5 text-sm font-medium text-blush transition hover:-translate-y-0.5 hover:border-blush hover:bg-blush/10"
+        className="rounded-(--radius-control) border border-heading/40 px-5 py-2.5 text-sm font-medium text-heading transition hover:-translate-y-0.5 hover:border-heading hover:bg-heading/10"
       >
         {unlocked ? labels.relock : labels.unlock}
       </button>

@@ -28,19 +28,19 @@ export default async function FaqPage({ params }: PageProps<"/[lang]/faq">) {
           {dict.faq.items.map((item, i) => (
             <details
               key={item.q}
-              className="faq animate-rise group rounded-3xl border border-plum-line bg-plum/40 px-6 transition-colors open:border-lipstick/60 open:bg-plum hover:border-blush/40"
+              className="faq animate-rise group rounded-3xl border border-line bg-surface/40 px-6 transition-colors open:border-accent/60 open:bg-surface hover:border-heading/40"
               style={delay(150 + i * 80)}
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-lg text-ink [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <span
                   aria-hidden="true"
-                  className="grid size-9 shrink-0 place-items-center rounded-full border border-plum-line text-xl leading-none text-blush transition-transform duration-300 group-open:rotate-45 group-open:border-lipstick group-open:bg-lipstick group-open:text-white"
+                  className="grid size-9 shrink-0 place-items-center rounded-full border border-line text-xl leading-none text-heading transition-transform duration-300 group-open:rotate-45 group-open:border-accent group-open:bg-accent group-open:text-white"
                 >
                   +
                 </span>
               </summary>
-              <p className="max-w-2xl pb-6 leading-relaxed text-haze">{item.a}</p>
+              <p className="max-w-2xl pb-6 leading-relaxed text-muted">{item.a}</p>
             </details>
           ))}
         </div>

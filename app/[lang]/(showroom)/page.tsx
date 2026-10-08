@@ -32,16 +32,16 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div aria-hidden="true">
-          <div className="aurora -left-32 -top-40 size-[28rem] bg-lipstick" />
-          <div className="aurora right-0 top-20 size-96 bg-[#7a2d8c]" style={delay(-6000)} />
-          <div className="aurora bottom-0 left-1/3 size-72 bg-[#c9a25e] opacity-25" style={delay(-11000)} />
+          <div className="aurora -left-32 -top-40 size-[28rem] bg-accent" />
+          <div className="aurora right-0 top-20 size-96 bg-violet" style={delay(-6000)} />
+          <div className="aurora bottom-0 left-1/3 size-72 bg-amber opacity-25" style={delay(-11000)} />
         </div>
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:pt-20">
           <div className="max-w-2xl">
-            <h1 className="animate-rise text-shimmer font-display text-5xl font-semibold leading-[1.02] sm:text-6xl">
+            <h1 className="animate-rise text-shimmer font-heading text-[2.4rem] font-semibold leading-[1.05] tracking-tight hyphens-auto break-words sm:text-5xl xl:text-[3.6rem]">
               {dict.hero.title}
             </h1>
-            <p className="animate-rise mt-6 max-w-xl text-lg leading-relaxed text-haze" style={delay(120)}>
+            <p className="animate-rise mt-6 max-w-xl text-lg leading-relaxed text-muted" style={delay(120)}>
               {dict.hero.lead}
             </p>
             <div className="animate-rise mt-8 flex flex-col gap-3 sm:flex-row" style={delay(240)}>
@@ -56,7 +56,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <ul className="mt-10 flex flex-col gap-2 text-sm text-ink sm:flex-row sm:flex-wrap sm:gap-x-6">
               {dict.hero.facts.map((fact, i) => (
                 <li key={fact} className="animate-rise flex items-center gap-2" style={delay(380 + i * 90)}>
-                  <CheckIcon className="text-lipstick" />
+                  <CheckIcon className="text-accent-soft" />
                   {fact}
                 </li>
               ))}
@@ -81,7 +81,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <div className="reveal flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <h2 className={sectionTitle}>{dict.showcase.title}</h2>
-            <p className="mt-4 text-haze">{dict.showcase.lead}</p>
+            <p className="mt-4 text-muted">{dict.showcase.lead}</p>
           </div>
           <Link href={`/${lang}/templates`} className={`group ${secondaryButton} self-start md:self-auto`}>
             {dict.showcase.seeAll}
@@ -95,10 +95,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 <DeviceDuo template={t} mock={dict.mock} planCopy={dict.demo.plans} lang={lang} />
                 <div className="mt-5 flex items-end justify-between gap-4">
                   <div>
-                    <p className="font-display text-3xl font-semibold text-blush">{t.name}</p>
-                    <p className="text-sm text-haze">{dict.templates[t.id].bestFor}</p>
+                    <p className="font-heading text-2xl font-semibold text-heading">{t.name}</p>
+                    <p className="text-sm text-muted">{dict.templates[t.id].bestFor}</p>
                   </div>
-                  <span className="flex items-center gap-2 text-sm font-medium text-blush opacity-70 transition group-hover:opacity-100">
+                  <span className="flex items-center gap-2 text-sm font-medium text-heading opacity-70 transition group-hover:opacity-100">
                     {dict.listing.preview}
                     <ArrowIcon className="transition-transform group-hover:translate-x-1" />
                   </span>
@@ -116,15 +116,15 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <li key={card.slug} className="reveal">
               <Link
                 href={`/${lang}/${card.slug}`}
-                className="group relative flex h-full flex-col overflow-hidden rounded-(--radius-panel) border border-plum-line bg-plum/60 p-7 transition duration-300 hover:-translate-y-1 hover:border-lipstick/70 hover:bg-plum"
+                className="group relative flex h-full flex-col overflow-hidden rounded-(--radius-panel) border border-line bg-surface/60 p-7 transition duration-300 hover:-translate-y-1 hover:border-accent/70 hover:bg-surface"
               >
                 <span
                   aria-hidden="true"
-                  className="absolute -right-16 -top-16 size-48 rounded-full bg-lipstick/0 blur-3xl transition duration-500 group-hover:bg-lipstick/30"
+                  className="absolute -right-16 -top-16 size-48 rounded-full bg-accent/0 blur-3xl transition duration-500 group-hover:bg-accent/30"
                 />
-                <span className="relative text-sm font-semibold uppercase tracking-widest text-lipstick">{card.eyebrow}</span>
-                <span className="relative mt-3 font-display text-3xl font-semibold leading-tight text-blush">{card.title}</span>
-                <span className="relative mt-3 line-clamp-3 text-haze">{card.text}</span>
+                <span className="relative text-sm font-semibold uppercase tracking-widest text-accent-soft">{card.eyebrow}</span>
+                <span className="relative mt-3 font-heading text-2xl font-semibold leading-tight tracking-tight text-heading">{card.title}</span>
+                <span className="relative mt-3 line-clamp-3 text-muted">{card.text}</span>
                 <span className="relative mt-6 flex items-center gap-2 font-medium text-ink">
                   {dict.home.more}
                   <ArrowIcon className="transition-transform duration-300 group-hover:translate-x-2" />

@@ -23,8 +23,8 @@ export function NavLinks({ links, variant }: Props) {
               onClick={variant === "menu" ? closeMenu : undefined}
               className={
                 variant === "bar"
-                  ? "relative block rounded-full px-3 py-1.5 text-haze transition-colors hover:text-ink aria-[current=page]:bg-plum aria-[current=page]:text-blush"
-                  : "block rounded-xl px-3 py-2.5 text-ink hover:bg-aubergine aria-[current=page]:text-blush"
+                  ? "relative block rounded-full px-3 py-1.5 text-muted transition-colors hover:text-ink aria-[current=page]:bg-surface aria-[current=page]:text-heading"
+                  : "block rounded-xl px-3 py-2.5 text-ink hover:bg-night aria-[current=page]:text-heading"
               }
             >
               {l.label}

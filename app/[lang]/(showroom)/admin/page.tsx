@@ -32,13 +32,13 @@ export default async function AdminPage({ params }: PageProps<"/[lang]/admin">) 
           {dict.admin.items.map((item, i) => (
             <div
               key={item.title}
-              className="reveal group rounded-(--radius-panel) border border-plum-line bg-plum/50 p-6 transition duration-300 hover:-translate-y-1 hover:border-lipstick/60 hover:bg-plum"
+              className="reveal group rounded-(--radius-panel) border border-line bg-surface/50 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/60 hover:bg-surface"
             >
-              <span aria-hidden="true" className="font-display text-4xl font-semibold text-lipstick/70 transition group-hover:text-lipstick">
+              <span aria-hidden="true" className="font-heading text-3xl font-semibold text-accent-soft/70 transition group-hover:text-accent-soft">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <dt className="mt-3 font-semibold text-blush">{item.title}</dt>
-              <dd className="mt-2 text-sm leading-relaxed text-haze">{item.text}</dd>
+              <dt className="mt-3 font-semibold text-heading">{item.title}</dt>
+              <dd className="mt-2 text-sm leading-relaxed text-muted">{item.text}</dd>
             </div>
           ))}
         </dl>

@@ -34,22 +34,22 @@ export default async function PricingPage({ params }: PageProps<"/[lang]/pricing
                 <div
                   className={`relative flex h-full flex-col rounded-(--radius-panel) border p-7 transition duration-300 hover:-translate-y-2 ${
                     featured
-                      ? "border-lipstick bg-plum shadow-[0_30px_90px_-30px_rgba(216,30,79,0.8)]"
-                      : "border-plum-line bg-plum/40 hover:border-blush/50"
+                      ? "border-accent bg-surface shadow-[0_30px_90px_-30px_rgba(227,23,91,0.8)]"
+                      : "border-line bg-surface/40 hover:border-heading/50"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
                     <h2 className="text-lg font-semibold text-ink">{plan.name}</h2>
                     {featured && (
-                      <span className="rounded-full bg-lipstick px-3 py-1 text-xs font-semibold text-white">{dict.pricing.popular}</span>
+                      <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">{dict.pricing.popular}</span>
                     )}
                   </div>
-                  <p className="mt-4 font-display text-5xl font-semibold text-blush">{plan.price}</p>
-                  <p className="mt-3 text-haze">{plan.text}</p>
-                  <ul className="mt-6 flex flex-col gap-3 border-t border-plum-line pt-6 text-sm text-ink">
+                  <p className="mt-4 font-heading text-4xl font-semibold tracking-tight text-heading">{plan.price}</p>
+                  <p className="mt-3 text-muted">{plan.text}</p>
+                  <ul className="mb-8 mt-6 flex flex-col gap-3 border-t border-line pt-6 text-sm text-ink">
                     {plan.features.map((f) => (
                       <li key={f} className="flex gap-2.5">
-                        <CheckIcon className="mt-0.5 shrink-0 text-lipstick" />
+                        <CheckIcon className="mt-0.5 shrink-0 text-accent-soft" />
                         {f}
                       </li>
                     ))}
@@ -62,7 +62,7 @@ export default async function PricingPage({ params }: PageProps<"/[lang]/pricing
             );
           })}
         </div>
-        <p className="reveal mt-8 text-center text-haze">{dict.pricing.support}</p>
+        <p className="reveal mt-8 text-center text-muted">{dict.pricing.support}</p>
       </section>
 
       <CtaBand lang={lang} dict={dict} />

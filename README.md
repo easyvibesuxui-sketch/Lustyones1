@@ -19,7 +19,7 @@ npm run build   # static site in out/
 | Studio name, domain, email, Telegram | `lib/site.ts` |
 | Templates (names, colours, demo creator, price) | `lib/templates.ts` |
 | All page text, per language | `lib/i18n/dictionaries/<lang>.ts` (`en.ts` defines the shape) |
-| Theme colours, fonts, radii | `app/globals.css` (`@theme`) |
+| Theme colours, fonts (showroom: Unbounded + Manrope), radii | `app/globals.css` (`@theme`) |
 | Animations and page transitions | `app/globals.css` (bottom), `components/page-shell.tsx` |
 | Country → language map | `lib/i18n/config.ts` |
 

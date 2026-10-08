@@ -23,10 +23,10 @@ export function LanguageSwitcher({ lang, label }: Props) {
       <select
         value={lang}
         onChange={(e) => change(e.target.value as Locale)}
-        className="cursor-pointer appearance-none rounded-(--radius-control) border border-plum-line bg-transparent py-2 pl-3 pr-8 text-sm text-ink hover:border-haze"
+        className="cursor-pointer appearance-none rounded-(--radius-control) border border-line bg-transparent py-2 pl-3 pr-8 text-sm text-ink hover:border-muted"
       >
         {locales.map((l) => (
-          <option key={l} value={l} className="bg-plum text-ink">
+          <option key={l} value={l} className="bg-surface text-ink">
             {localeNames[l]}
           </option>
         ))}
@@ -36,7 +36,7 @@ export function LanguageSwitcher({ lang, label }: Props) {
         width="14"
         height="14"
         aria-hidden="true"
-        className="pointer-events-none absolute right-3 text-haze"
+        className="pointer-events-none absolute right-3 text-muted"
         fill="currentColor"
       >
         <path d="M5 7l5 6 5-6z" />

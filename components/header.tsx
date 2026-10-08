@@ -13,7 +13,7 @@ export function Header({ lang, dict }: Props) {
 
   return (
     <header
-      className="sticky top-0 z-40 border-b border-plum-line/60 bg-aubergine/85 backdrop-blur"
+      className="sticky top-0 z-40 border-b border-line/60 bg-night/85 backdrop-blur"
       style={{ viewTransitionName: "site-header" }}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4 sm:px-6">
@@ -29,13 +29,13 @@ export function Header({ lang, dict }: Props) {
           <LanguageSwitcher lang={lang} label={dict.nav.language} />
           <Link
             href={`/${lang}/order`}
-            className="hidden rounded-(--radius-control) bg-lipstick px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(216,30,79,0.8)] transition hover:-translate-y-0.5 hover:bg-lipstick-deep sm:inline-block"
+            className="hidden rounded-(--radius-control) bg-accent px-4 py-2 text-sm font-semibold text-white shadow-[0_8px_30px_-8px_rgba(227,23,91,0.8)] transition hover:-translate-y-0.5 hover:bg-accent-deep sm:inline-block"
           >
             {dict.nav.order}
           </Link>
 
           <details className="group relative lg:hidden">
-            <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-full border border-plum-line [&::-webkit-details-marker]:hidden">
+            <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-full border border-line [&::-webkit-details-marker]:hidden">
               <span className="sr-only">{dict.nav.menu}</span>
               <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" className="group-open:hidden" fill="currentColor">
                 <path d="M3 6h14v1.5H3zM3 12.5h14V14H3z" />
@@ -46,7 +46,7 @@ export function Header({ lang, dict }: Props) {
             </summary>
             <nav
               aria-label={dict.nav.menu}
-              className="absolute right-0 top-12 w-56 rounded-2xl border border-plum-line bg-plum p-2 shadow-2xl"
+              className="absolute right-0 top-12 w-56 rounded-2xl border border-line bg-surface p-2 shadow-2xl"
             >
               <NavLinks links={[...links, { href: `/${lang}/order`, label: dict.nav.order }]} variant="menu" />
             </nav>

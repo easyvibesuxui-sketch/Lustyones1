@@ -28,22 +28,22 @@ export default async function HowItWorksPage({ params }: PageProps<"/[lang]/how-
 
       <section className="mx-auto grid max-w-6xl gap-16 px-4 pb-24 pt-6 sm:px-6 lg:grid-cols-[minmax(0,1fr)_auto]">
         {/* A real sequence, so the steps are numbered and joined by a line */}
-        <ol className="relative flex flex-col gap-6 before:absolute before:bottom-8 before:left-7 before:top-8 before:w-px before:bg-gradient-to-b before:from-lipstick before:via-plum-line before:to-transparent">
+        <ol className="relative flex flex-col gap-6 before:absolute before:bottom-8 before:left-7 before:top-8 before:w-px before:bg-gradient-to-b before:from-accent before:via-line before:to-transparent">
           {dict.funnel.steps.map((step, i) => (
             <li key={step.title} className="reveal relative flex gap-6">
               <span
                 aria-hidden="true"
-                className="relative grid size-14 shrink-0 place-items-center rounded-full border border-lipstick/60 bg-aubergine font-display text-2xl font-semibold text-blush shadow-[0_0_30px_-6px_rgba(216,30,79,0.8)]"
+                className="relative grid size-14 shrink-0 place-items-center rounded-full border border-accent/60 bg-night font-heading text-xl font-semibold text-heading shadow-[0_0_30px_-6px_rgba(227,23,91,0.8)]"
               >
                 {i + 1}
               </span>
-              <div className="flex-1 rounded-(--radius-panel) border border-plum-line bg-plum/60 p-6 transition duration-300 hover:-translate-y-1 hover:border-lipstick/60">
+              <div className="flex-1 rounded-(--radius-panel) border border-line bg-surface/60 p-6 transition duration-300 hover:-translate-y-1 hover:border-accent/60">
                 <h2 className="text-2xl font-semibold text-ink">{step.title}</h2>
-                <p className="mt-2 text-haze">{step.text}</p>
-                <ul className="mt-5 flex flex-col gap-3 border-t border-plum-line pt-5 text-ink">
+                <p className="mt-2 text-muted">{step.text}</p>
+                <ul className="mt-5 flex flex-col gap-3 border-t border-line pt-5 text-ink">
                   {step.items.map((item) => (
                     <li key={item} className="flex gap-3">
-                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-lipstick" aria-hidden="true" />
+                      <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" aria-hidden="true" />
                       {item}
                     </li>
                   ))}

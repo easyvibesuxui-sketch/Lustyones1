@@ -19,7 +19,7 @@ export function LocaleRedirect({ path }: { path: string }) {
     <ul className="flex flex-wrap justify-center gap-2 p-8">
       {locales.map((l) => (
         <li key={l}>
-          <Link href={`/${l}${path}`} className="rounded-(--radius-control) border border-plum-line px-4 py-2 text-sm text-haze hover:text-ink">
+          <Link href={`/${l}${path}`} className="rounded-(--radius-control) border border-line px-4 py-2 text-sm text-muted hover:text-ink">
             {localeNames[l]}
           </Link>
         </li>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Cormorant_Garamond, Onest, Unbounded } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Onest, Unbounded } from "next/font/google";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { site } from "@/lib/site";
@@ -18,11 +18,16 @@ const onest = Onest({
   subsets: ["latin", "cyrillic"],
 });
 
-// Used only inside the Neon template preview.
+// The showroom's headings, and the Neon template's type.
 const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["latin", "cyrillic"],
-  weight: ["600"],
+});
+
+// The showroom's body text.
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin", "cyrillic"],
 });
 
 // Only the six languages exist; anything else is a 404 (required for static export).
@@ -52,7 +57,7 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
   if (!isLocale(lang)) notFound();
 
   return (
-    <html lang={lang} className={`${cormorant.variable} ${onest.variable} ${unbounded.variable} antialiased`}>
+    <html lang={lang} className={`${cormorant.variable} ${onest.variable} ${unbounded.variable} ${manrope.variable} antialiased`}>
       <body className="flex min-h-dvh flex-col">{children}</body>
     </html>
   );
