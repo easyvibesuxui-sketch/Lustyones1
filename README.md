@@ -33,6 +33,13 @@ npm run build   # static site in out/
 
 Until images are added, the previews use abstract colour placeholders.
 
+## Live demos
+
+`/<lang>/demo/<template>` (e.g. `/en/demo/velvet`) is a full creator page in that template's theme, built from
+`components/demo/demo-site.tsx`. Everything is simulated in the browser: the 18+ gate (remembered in `localStorage`),
+subscription plans and checkout, a pay-per-view post, the welcome message, tips with a goal bar, and a poll.
+Demo pages are marked `noindex`. Their text lives under `demo` in each dictionary.
+
 ## How the language is chosen
 
 The site is static (GitHub Pages), so the choice happens in the browser.

@@ -37,9 +37,12 @@ export function TemplateCard({ template, dict, lang }: Props) {
           >
             {dict.listing.orderThis}
           </Link>
-          <span className="rounded-(--radius-control) border border-plum-line px-4 py-2.5 text-sm text-haze">
+          <Link
+            href={`/${lang}/demo/${template.id}`}
+            className="rounded-(--radius-control) border border-blush/40 px-4 py-2.5 text-sm font-medium text-blush hover:border-blush hover:bg-blush/10"
+          >
             {dict.listing.preview}
-          </span>
+          </Link>
         </div>
       </div>
     </article>

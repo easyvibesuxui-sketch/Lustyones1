@@ -71,7 +71,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <ul className="-mx-4 mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto px-4 pb-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:overflow-visible lg:px-0">
             {templates.map((t) => (
               <li key={t.id} className="shrink-0 snap-start">
-                <Link href={`/${lang}/templates`} className="group block rounded-(--radius-device)">
+                <Link href={`/${lang}/demo/${t.id}`} className="group block rounded-(--radius-device)">
                   <PhoneMock template={t} mock={dict.mock} lang={lang} size="small" />
                   <p className="mt-4 font-display text-2xl font-semibold text-blush group-hover:underline">{t.name}</p>
                   <p className="text-sm text-haze">{dict.templates[t.id].bestFor}</p>

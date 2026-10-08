@@ -4,8 +4,6 @@ import { Cormorant_Garamond, Onest, Unbounded } from "next/font/google";
 import { isLocale, locales } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { site } from "@/lib/site";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import "../globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -52,15 +50,10 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
 export default async function LangLayout({ children, params }: LayoutProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
-  const dict = await getDictionary(lang);
 
   return (
     <html lang={lang} className={`${cormorant.variable} ${onest.variable} ${unbounded.variable} antialiased`}>
-      <body className="flex min-h-dvh flex-col">
-        <Header lang={lang} dict={dict} />
-        <main className="flex-1">{children}</main>
-        <Footer lang={lang} dict={dict} />
-      </body>
+      <body className="flex min-h-dvh flex-col">{children}</body>
     </html>
   );
 }
