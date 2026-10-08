@@ -41,7 +41,11 @@ export const templates: Template[] = [
       tones: ["#6B2B3A", "#A2574B", "#D9A27E"],
       font: "display",
     },
-    images: { feed: [] },
+    images: {
+      avatar: "/demo/velvet/avatar.webp",
+      cover: "/demo/velvet/cover.webp",
+      feed: ["/demo/velvet/01.webp", "/demo/velvet/02.webp", "/demo/velvet/03.webp", "/demo/velvet/04.webp", "/demo/velvet/05.webp", "/demo/velvet/06.webp", "/demo/velvet/07.webp", "/demo/velvet/08.webp", "/demo/velvet/09.webp"],
+    },
   },
   {
     id: "bloom",
@@ -59,7 +63,11 @@ export const templates: Template[] = [
       tones: ["#F4C7C3", "#F9E1B8", "#C9DFC9"],
       font: "body",
     },
-    images: { feed: [] },
+    images: {
+      avatar: "/demo/bloom/avatar.webp",
+      cover: "/demo/bloom/cover.webp",
+      feed: ["/demo/bloom/01.webp", "/demo/bloom/02.webp", "/demo/bloom/03.webp", "/demo/bloom/04.webp", "/demo/bloom/05.webp", "/demo/bloom/06.webp", "/demo/bloom/07.webp", "/demo/bloom/08.webp", "/demo/bloom/09.webp"],
+    },
   },
   {
     id: "neon",
