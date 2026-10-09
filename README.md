@@ -77,6 +77,6 @@ Countries and time zones not in the maps in `lib/i18n/config.ts` (e.g. Georgia, 
 ## Deploying
 
 Every push to `claude/nifty-ritchie-wp6v2n` or `main` runs `.github/workflows/pages.yml`, which builds the static site (`out/`) and publishes it to
-https://easyvibesuxui-sketch.github.io/Lustyones/
+https://easyvibesuxui-sketch.github.io/Lustyones1/
 
 The repository's Pages source must be set to **GitHub Actions** (Settings → Pages → Build and deployment → Source).
