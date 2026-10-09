@@ -21,9 +21,20 @@ export type Template = {
   price: string;
   theme: TemplateTheme;
   // Demo images under public/, e.g. "/demo/neon/01.webp". Empty until images are added.
-  // `scene` is the sharp portrait shown through the keyhole; `backdrop` the blurred full-screen background.
-  images: { avatar?: string; cover?: string; scene?: string; backdrop?: string; feed: string[] };
+  // `scene` is a portrait crop for small thumbnails; `backdrop` a blurred landscape version of the same photo.
+  // `stage` is the whole photo for the home page keyhole: its width / height, and how far down (0-1)
+  // the part that should sit in the keyhole's round opening is.
+  images: {
+    avatar?: string;
+    cover?: string;
+    scene?: string;
+    backdrop?: string;
+    stage?: Stage;
+    feed: string[];
+  };
 };
+
+export type Stage = { src: string; ratio: number; focus: number };
 
 export type PlanId = "month" | "three" | "six";
 
@@ -59,6 +70,7 @@ export const templates: Template[] = [
       cover: "/demo/velvet/cover.webp",
       scene: "/demo/velvet/scene.webp",
       backdrop: "/demo/velvet/bg.webp",
+      stage: { src: "/demo/velvet/stage.webp", ratio: 0.721, focus: 0.36 },
       feed: ["/demo/velvet/01.webp", "/demo/velvet/02.webp", "/demo/velvet/03.webp", "/demo/velvet/04.webp", "/demo/velvet/05.webp", "/demo/velvet/06.webp", "/demo/velvet/07.webp", "/demo/velvet/08.webp", "/demo/velvet/09.webp"],
     },
   },
@@ -83,6 +95,7 @@ export const templates: Template[] = [
       cover: "/demo/bloom/cover.webp",
       scene: "/demo/bloom/scene.webp",
       backdrop: "/demo/bloom/bg.webp",
+      stage: { src: "/demo/bloom/stage.webp", ratio: 0.639, focus: 0.36 },
       feed: ["/demo/bloom/01.webp", "/demo/bloom/02.webp", "/demo/bloom/03.webp", "/demo/bloom/04.webp", "/demo/bloom/05.webp", "/demo/bloom/06.webp", "/demo/bloom/07.webp", "/demo/bloom/08.webp", "/demo/bloom/09.webp"],
     },
   },
@@ -107,6 +120,7 @@ export const templates: Template[] = [
       cover: "/demo/neon/cover.webp",
       scene: "/demo/neon/scene.webp",
       backdrop: "/demo/neon/bg.webp",
+      stage: { src: "/demo/neon/stage.webp", ratio: 0.901, focus: 0.42 },
       feed: ["/demo/neon/01.webp", "/demo/neon/02.webp", "/demo/neon/03.webp", "/demo/neon/04.webp", "/demo/neon/05.webp", "/demo/neon/06.webp", "/demo/neon/07.webp", "/demo/neon/08.webp", "/demo/neon/09.webp"],
     },
   },
@@ -131,6 +145,7 @@ export const templates: Template[] = [
       cover: "/demo/editorial/cover.webp",
       scene: "/demo/editorial/scene.webp",
       backdrop: "/demo/editorial/bg.webp",
+      stage: { src: "/demo/editorial/stage.webp", ratio: 0.5625, focus: 0.26 },
       feed: ["/demo/editorial/01.webp", "/demo/editorial/02.webp", "/demo/editorial/03.webp", "/demo/editorial/04.webp", "/demo/editorial/05.webp", "/demo/editorial/06.webp", "/demo/editorial/07.webp", "/demo/editorial/08.webp", "/demo/editorial/09.webp"],
     },
   },

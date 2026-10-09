@@ -14,7 +14,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  const shown = templates.filter((t) => t.images.scene && t.images.backdrop);
+  const shown = templates.filter((t) => t.images.stage && t.images.backdrop);
 
   // The rest of the studio, one door per inner page.
   const inside = [
@@ -29,7 +29,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     {
       id: "intro",
       backdrop: "/showroom/intro-bg.webp",
-      scene: "/showroom/intro-scene.webp",
+      stage: { src: "/showroom/intro-stage.webp", ratio: 0.611, focus: 0.28 },
       content: (
         <>
           <h1 className="ch-in max-w-[34rem] font-heading text-[2rem] font-bold uppercase leading-[1.02] text-heading hyphens-auto break-words sm:text-4xl xl:text-5xl" style={enterAt(500)}>
@@ -54,7 +54,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       id: t.id,
       number: i + 1,
       backdrop: t.images.backdrop!,
-      scene: t.images.scene!,
+      stage: t.images.stage!,
       content: (
         <>
           <h2 className="ch-in font-heading text-5xl font-bold uppercase leading-[0.9] tracking-wide text-heading lg:text-6xl" style={enterAt(550)}>

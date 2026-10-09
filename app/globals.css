@@ -321,27 +321,107 @@ details.faq[open]::details-content {
 }
 
 /* Home page stage: one chapter on screen at a time (components/chapter-stage.tsx).
-   The outgoing chapter fades as a whole; the incoming one builds up piece by piece. */
+   Each chapter is one photo: dark all over, lit through a keyhole. Sizes are in units of the
+   stage (cqw, cqh), which is a size container. --kx/--ky is the centre of the keyhole's round
+   opening and --kh the keyhole's height; the keyhole zooms around that centre. */
+@property --kh {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --open {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
 .ch {
+  --keyhole: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='4 0 54 100'><path d='M31 0a27 27 0 0 1 14 50L58 100H4L17 50A27 27 0 0 1 31 0Z'/></svg>");
+  --kx: 50cqw;
+  --ky: 26.9cqh;
+  --kh0: 44cqh;
+  --kh: var(--kh0);
+  --open: 450cqmax;
+  --photo: 130cqh;
   opacity: 0;
   visibility: hidden;
   transition:
-    opacity 0.8s ease,
-    visibility 0s linear 0.8s;
+    opacity 0.5s ease,
+    visibility 0s linear 0.5s,
+    --kh 1.1s cubic-bezier(0.7, 0, 0.25, 1);
 }
 
-.ch[data-active="true"] {
+@media (min-width: 1024px) {
+  .ch {
+    --kx: 62cqw;
+    --ky: 35.7cqh;
+    --kh0: 62cqh;
+  }
+}
+
+.ch[data-state="active"] {
+  z-index: 1;
   opacity: 1;
   visibility: visible;
   transition:
-    opacity 0.6s ease,
-    visibility 0s;
+    opacity 0s,
+    visibility 0s,
+    --kh 1.1s cubic-bezier(0.7, 0, 0.25, 1);
 }
 
-@keyframes ch-bg {
+/* A keyhole-shaped window of height --size, centred on the opening. */
+.ch-hole,
+.ch-open {
+  mask-image: var(--keyhole);
+  mask-repeat: no-repeat;
+  mask-size: calc(var(--size) * 0.54) var(--size);
+  mask-position: calc(var(--kx) - var(--size) * 0.27) calc(var(--ky) - var(--size) * 0.27);
+}
+
+.ch-hole {
+  --size: var(--kh);
+}
+
+.ch-open {
+  --size: var(--open);
+}
+
+/* The portrait: --photo tall, centred on the keyhole, its --f point in the opening,
+   fading out at its sides into the blurred copy behind it. */
+.ch-photo {
+  height: var(--photo);
+  left: var(--kx);
+  top: calc(var(--ky) - var(--f) * var(--photo));
+  translate: -50% 0;
+  mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+}
+
+.ch-lit,
+.ch-cam {
+  transform-origin: var(--kx) var(--ky);
+}
+
+@keyframes ch-light {
   from {
-    scale: 1.14;
-    opacity: 0.2;
+    opacity: 0;
+    scale: 1.35;
+  }
+}
+
+@keyframes ch-open {
+  from {
+    --open: var(--kh0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+}
+
+@keyframes ch-dim {
+  to {
+    opacity: 0;
   }
 }
 
@@ -349,22 +429,6 @@ details.faq[open]::details-content {
   from {
     opacity: 0;
     translate: 0 46px;
-  }
-}
-
-@keyframes ch-keyhole {
-  from {
-    opacity: 0;
-    scale: 0.8;
-  }
-}
-
-@keyframes ch-flash {
-  from {
-    opacity: 0.92;
-  }
-  to {
-    opacity: 0;
   }
 }
 
@@ -381,49 +445,52 @@ details.faq[open]::details-content {
   }
 }
 
-.ch[data-active="true"] .ch-bg {
-  animation: ch-bg 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+/* In: the photo lights up inside the keyhole, settling from close up... */
+.ch[data-state="active"] .ch-lit {
+  animation: ch-light 1.3s cubic-bezier(0.2, 0.7, 0.2, 1) 0.25s both;
 }
 
-.ch[data-active="true"] .ch-in {
+/* ...then the dark room opens out of the keyhole to the edges of the screen. */
+.ch[data-state="active"] .ch-open {
+  animation: ch-open 1.4s cubic-bezier(0.65, 0, 0.25, 1) 0.75s both;
+}
+
+/* Out: the lit keyhole goes dark first, then the rest. */
+.ch[data-state="leaving"] .ch-hole {
+  animation: ch-dim 0.3s ease both;
+}
+
+.ch[data-state="active"] .ch-in {
   animation: ch-in 1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 600ms) both;
 }
 
-.ch[data-active="true"] .ch-keyhole {
-  animation: ch-keyhole 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both;
-}
-
-.keyhole-flash {
-  opacity: 0;
-}
-
-.ch[data-active="true"] .keyhole-flash {
-  animation: ch-flash 1.3s ease 0.45s both;
-}
-
-.ch[data-active="true"] .ch-line {
+.ch[data-state="active"] .ch-line {
   transform-origin: left;
   animation: ch-line 0.8s cubic-bezier(0.7, 0, 0.2, 1) var(--d, 900ms) both;
 }
 
-.ch[data-active="true"] .ch-num {
-  animation: ch-num 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.5s both;
+.ch[data-state="active"] .ch-num {
+  animation: ch-num 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) 0.9s both;
 }
 
-/* "Enter": the keyhole widens until the photo fills the screen. */
-.ch-zoom {
-  transform-origin: 50% 28%;
-  transition: scale 1s cubic-bezier(0.7, 0, 0.2, 1);
+/* "Enter": the keyhole widens until the lit photo fills the screen, while the view pushes in. */
+.ch[data-entering="true"] {
+  --kh: 450cqmax;
 }
 
-.ch[data-entering="true"] .ch-zoom {
-  scale: 9;
+.ch-cam {
+  transition: scale 1.1s cubic-bezier(0.7, 0, 0.25, 1);
+}
+
+.ch[data-entering="true"] .ch-cam {
+  scale: 1.12;
 }
 
 .ch-content {
   transition: opacity 0.4s ease;
 }
 
-.ch[data-entering="true"] .ch-content {
+.ch[data-entering="true"] .ch-content,
+.ch[data-entering="true"] .ch-num {
   opacity: 0;
 }
