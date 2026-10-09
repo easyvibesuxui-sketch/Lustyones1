@@ -23,7 +23,7 @@ export default async function OrderPage({ params }: PageProps<"/[lang]/order">) 
   return (
     <PageShell>
       <PageHero title={dict.order.title} lead={dict.order.lead} number={6} backdrop="/showroom/intro-bg.webp">
-        <div className="animate-rise mt-9 flex flex-col gap-3 sm:flex-row" style={delay(240)}>
+        <div className="animate-rise mt-12 flex flex-col gap-4 sm:flex-row sm:gap-6" style={delay(240)}>
           <a href={`mailto:${site.contact.email}`} className={`group ${primaryButton}`}>
             {dict.order.email}
             <ArrowIcon className="transition-transform group-hover:translate-x-1" />
@@ -34,19 +34,19 @@ export default async function OrderPage({ params }: PageProps<"/[lang]/order">) 
         </div>
       </PageHero>
 
-      <section className="mx-auto max-w-6xl px-4 pb-24 pt-10 sm:px-6">
+      <section className="mx-auto max-w-6xl px-5 pb-32 pt-12 sm:px-10 sm:pb-40">
         <h2 className={`reveal ${sectionTitle}`}>{dict.process.title}</h2>
-        <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {dict.process.steps.map((step, i) => (
             <li
               key={step.title}
               className="reveal relative overflow-hidden border-t border-line pt-6 transition-colors duration-300 hover:border-accent"
             >
-              <span aria-hidden="true" className="numeral block text-7xl">
+              <span aria-hidden="true" className="numeral block text-5xl">
                 {i + 1}
               </span>
-              <p className="relative mt-4 font-heading text-xl font-bold uppercase tracking-wide text-heading">{step.title}</p>
-              <p className="relative mt-2 font-body text-ink">{step.text}</p>
+              <p className="relative mt-5 font-heading text-lg font-bold uppercase tracking-wide text-heading">{step.title}</p>
+              <p className="relative mt-3 font-body text-sm leading-relaxed text-ink/90">{step.text}</p>
             </li>
           ))}
         </ol>

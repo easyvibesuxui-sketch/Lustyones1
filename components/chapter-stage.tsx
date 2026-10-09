@@ -95,7 +95,7 @@ export function ChapterStage({ slides }: { slides: Slide[] }) {
               <div className="vignette absolute inset-0" />
             </div>
 
-            <div className="ch-zoom absolute left-1/2 top-[16%] h-[48svh] -translate-x-1/2 lg:left-[60%] lg:top-[13%] lg:h-[76svh]">
+            <div className="ch-zoom absolute left-1/2 top-[15%] h-[44svh] -translate-x-1/2 lg:left-[62%] lg:top-[19%] lg:h-[62svh]">
               <div className="ch-keyhole h-full">
                 <Keyhole id={s.id} src={s.scene} className="h-full w-auto drop-shadow-[0_40px_80px_rgba(0,0,0,0.65)]" />
               </div>
@@ -104,20 +104,20 @@ export function ChapterStage({ slides }: { slides: Slide[] }) {
             {s.number !== undefined && (
               <span
                 aria-hidden="true"
-                className="ch-num numeral pointer-events-none absolute right-5 top-[12%] text-[7rem] sm:text-[10rem] lg:left-[64%] lg:right-auto lg:top-[46%] lg:text-[13rem]"
+                className="ch-num numeral pointer-events-none absolute right-6 top-[12%] text-[5rem] sm:text-[7rem] lg:left-[67%] lg:right-auto lg:top-[50%] lg:text-[9rem]"
               >
                 {String(s.number).padStart(2, "0")}
               </span>
             )}
 
-            <div className="ch-content absolute inset-x-5 bottom-[9%] [text-shadow:0_2px_30px_rgb(0_0_0/0.55)] sm:inset-x-10 lg:bottom-auto lg:left-[12%] lg:right-auto lg:top-[30%] lg:w-[min(40rem,44vw)]">
+            <div className="ch-content absolute inset-x-5 bottom-[9%] [text-shadow:0_2px_30px_rgb(0_0_0/0.55)] sm:inset-x-10 lg:bottom-auto lg:left-[13%] lg:right-auto lg:top-[36%] lg:w-[min(32rem,36vw)]">
               {s.content}
             </div>
           </div>
         ))}
 
         {/* The dashed rail; its marker shows where we are */}
-        <div aria-hidden="true" className="absolute left-8 top-1/2 hidden h-56 -translate-y-1/2 lg:block">
+        <div aria-hidden="true" className="absolute left-10 top-1/2 hidden h-48 -translate-y-1/2 lg:block">
           <div className="h-full w-3 bg-[repeating-linear-gradient(to_bottom,rgb(243_236_228/0.6)_0_1px,transparent_1px_7px)]" />
           <div
             className="absolute left-0 h-px w-7 bg-heading transition-[top] duration-700 ease-out"
@@ -136,9 +136,9 @@ export function ChapterStage({ slides }: { slides: Slide[] }) {
           tabIndex={-1}
           aria-hidden="true"
           onClick={() => (active < slides.length - 1 ? goTo(active + 1) : goTo(slides.length))}
-          className="absolute bottom-8 right-8 hidden text-heading/80 transition hover:translate-y-1 hover:text-accent-soft sm:block"
+          className="absolute bottom-10 right-10 hidden text-heading/80 transition hover:translate-y-1 hover:text-accent-soft sm:block"
         >
-          <LineArrowDown />
+          <LineArrowDown className="h-14 w-11" />
         </button>
       </div>
     </section>

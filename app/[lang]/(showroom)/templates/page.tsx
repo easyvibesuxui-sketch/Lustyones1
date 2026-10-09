@@ -28,7 +28,7 @@ export default async function TemplatesPage({ params }: PageProps<"/[lang]/templ
   return (
     <PageShell>
       <PageHero title={dict.listing.title} lead={dict.listing.lead} number={1} backdrop="/demo/velvet/bg.webp" />
-      <div className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+      <div className="mx-auto max-w-6xl px-5 pb-32 sm:px-10 sm:pb-40">
         <TemplateGrid templates={templates} dict={dict} lang={lang} />
       </div>
       <CtaBand lang={lang} dict={dict} />

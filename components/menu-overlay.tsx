@@ -46,7 +46,7 @@ export function MenuOverlay({ lang, links, templates, labels }: Props) {
         type="button"
         onClick={() => setOpen(true)}
         aria-expanded={open}
-        className="flex items-center gap-3 font-body text-base text-heading hover:text-accent-soft"
+        className="flex items-center gap-3 font-body text-sm text-heading hover:text-accent-soft sm:text-base"
       >
         <svg viewBox="0 0 20 14" width="20" height="14" aria-hidden="true" fill="currentColor">
           <path d="M0 0h20v1.6H0zM0 6.2h20v1.6H0zM0 12.4h20V14H0z" />
@@ -62,7 +62,7 @@ export function MenuOverlay({ lang, links, templates, labels }: Props) {
         inert={!open}
         className="menu-overlay fixed inset-0 z-50 overflow-y-auto bg-night"
       >
-        <div className="mx-auto grid min-h-full max-w-[90rem] gap-12 px-5 py-6 sm:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
+        <div className="mx-auto grid min-h-full max-w-[90rem] gap-16 px-5 py-7 sm:px-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
           <div className="flex flex-col">
             <button
               ref={closeRef}
@@ -76,15 +76,15 @@ export function MenuOverlay({ lang, links, templates, labels }: Props) {
               {labels.close}
             </button>
 
-            <nav aria-label={labels.menu} className="mt-14">
-              <ol className="flex flex-col gap-2">
+            <nav aria-label={labels.menu} className="mt-20">
+              <ol className="flex flex-col gap-4">
                 {links.map((l, i) => (
                   <li key={l.href}>
                     <Link
                       href={l.href}
                       onClick={() => setOpen(false)}
                       aria-current={pathname === l.href ? "page" : undefined}
-                      className="group flex items-baseline gap-4 font-body text-4xl text-muted transition-colors hover:text-heading aria-[current=page]:text-heading sm:text-6xl"
+                      className="group flex items-baseline gap-5 font-body text-3xl text-muted transition-colors hover:text-heading aria-[current=page]:text-heading sm:text-4xl"
                     >
                       <span className="font-heading text-sm tracking-widest text-accent-soft">{String(i + 1).padStart(2, "0")}</span>
                       <span className="transition-transform duration-300 group-hover:translate-x-2">{l.label}</span>
@@ -94,7 +94,7 @@ export function MenuOverlay({ lang, links, templates, labels }: Props) {
               </ol>
             </nav>
 
-            <div className="mt-auto flex flex-col gap-4 pt-14 font-body text-sm text-muted">
+            <div className="mt-auto flex flex-col gap-4 pt-20 font-body text-sm text-muted">
               <div className="self-start">
                 <LanguageSwitcher lang={lang} label={labels.language} />
               </div>
@@ -107,20 +107,20 @@ export function MenuOverlay({ lang, links, templates, labels }: Props) {
             </div>
           </div>
 
-          <ul className="hidden flex-col justify-center gap-6 pr-8 lg:flex">
+          <ul className="hidden flex-col justify-center gap-12 pr-10 lg:flex">
             {templates.map((t, i) => (
               <li key={t.id} className={i % 2 ? "self-start" : "self-end"}>
-                <Link href={`/${lang}/demo/${t.id}`} onClick={() => setOpen(false)} className="group relative flex items-end gap-6">
-                  <span className="font-heading text-4xl font-bold uppercase leading-none text-heading transition-colors group-hover:text-accent-soft">
+                <Link href={`/${lang}/demo/${t.id}`} onClick={() => setOpen(false)} className="group relative flex items-end gap-8">
+                  <span className="font-heading text-2xl font-bold uppercase leading-none tracking-wide text-heading transition-colors group-hover:text-accent-soft">
                     {t.name}
-                    <span className="mt-2 block font-body text-base font-normal normal-case text-muted">{t.line}</span>
+                    <span className="mt-2 block font-body text-sm font-normal normal-case tracking-normal text-muted">{t.line}</span>
                   </span>
                   <span
                     aria-hidden="true"
-                    className="block h-28 w-44 bg-cover bg-center opacity-70 grayscale transition duration-500 group-hover:opacity-100 group-hover:grayscale-0"
+                    className="block h-24 w-36 bg-cover bg-center opacity-70 grayscale transition duration-500 group-hover:opacity-100 group-hover:grayscale-0"
                     style={t.scene ? { backgroundImage: `url(${asset(t.scene)})` } : undefined}
                   />
-                  <span aria-hidden="true" className="numeral absolute -bottom-6 -right-6 text-8xl">
+                  <span aria-hidden="true" className="numeral absolute -bottom-5 -right-6 text-6xl">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </Link>

@@ -32,13 +32,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       scene: "/showroom/intro-scene.webp",
       content: (
         <>
-          <h1 className="ch-in font-heading text-[2.6rem] font-bold uppercase leading-[0.92] text-heading hyphens-auto break-words sm:text-6xl xl:text-7xl" style={enterAt(500)}>
+          <h1 className="ch-in max-w-[34rem] font-heading text-[2rem] font-bold uppercase leading-[1.02] text-heading hyphens-auto break-words sm:text-4xl xl:text-5xl" style={enterAt(500)}>
             {dict.hero.title}
           </h1>
-          <p className="ch-in mt-6 hidden max-w-lg font-body text-lg leading-relaxed text-ink sm:block" style={enterAt(700)}>
+          <p className="ch-in mt-7 hidden max-w-md font-body text-base leading-relaxed text-ink/90 sm:block" style={enterAt(700)}>
             {dict.hero.lead}
           </p>
-          <div className="ch-in mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center" style={enterAt(850)}>
+          <div className="ch-in mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:gap-10" style={enterAt(850)}>
             <Link href={`/${lang}/templates`} className={primaryButton}>
               {dict.hero.primary}
             </Link>
@@ -57,20 +57,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       scene: t.images.scene!,
       content: (
         <>
-          <h2 className="ch-in font-heading text-7xl font-bold uppercase leading-[0.85] text-heading sm:text-8xl lg:text-9xl" style={enterAt(550)}>
+          <h2 className="ch-in font-heading text-5xl font-bold uppercase leading-[0.9] tracking-wide text-heading lg:text-6xl" style={enterAt(550)}>
             {t.name}
           </h2>
-          <p className="ch-in mt-5 max-w-md font-body text-xl leading-relaxed text-ink" style={enterAt(700)}>
+          <p className="ch-in mt-6 max-w-sm font-body text-base leading-relaxed text-ink/90" style={enterAt(700)}>
             {dict.templates[t.id].description}
           </p>
-          <p className="ch-in mt-2 font-heading text-sm uppercase tracking-widest text-muted" style={enterAt(780)}>
+          <p className="ch-in mt-3 font-heading text-xs uppercase tracking-[0.25em] text-muted" style={enterAt(780)}>
             {dict.listing.bestFor}: {dict.templates[t.id].bestFor}
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-x-10 gap-y-5">
+          <div className="mt-10 flex flex-wrap items-center gap-x-10 gap-y-5">
             <Link
               href={`/${lang}/demo/${t.id}`}
               data-enter={`/${lang}/demo/${t.id}`}
-              className="group relative inline-flex items-center gap-4 pb-2 font-heading text-lg font-medium uppercase tracking-wider text-heading transition-colors hover:text-accent-soft"
+              className="group relative inline-flex items-center gap-4 pb-2 font-heading text-sm font-medium uppercase tracking-[0.2em] text-heading transition-colors hover:text-accent-soft"
             >
               <span className="ch-in" style={enterAt(1100)}>
                 {dict.listing.preview}
@@ -80,7 +80,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </Link>
             <Link
               href={`/${lang}/order`}
-              className="ch-in font-heading text-base uppercase tracking-widest text-muted transition-colors hover:text-accent-soft"
+              className="ch-in font-heading text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-accent-soft"
               style={enterAt(1200)}
             >
               {dict.listing.orderThis} · {t.price}
@@ -96,13 +96,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <ChapterStage slides={slides} />
 
       {/* The same site on a laptop and a phone */}
-      <section id="screens" className="relative overflow-hidden border-t border-line py-28 sm:py-36">
-        <div className="mx-auto grid max-w-[90rem] items-center gap-16 px-5 sm:px-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:pl-28">
+      <section id="screens" className="relative overflow-hidden border-t border-line py-32 sm:py-48">
+        <div className="mx-auto grid max-w-[90rem] items-center gap-20 px-5 sm:px-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:pl-28">
           <div className="reveal">
-            <h2 className="font-heading text-5xl font-bold uppercase leading-[0.92] text-heading hyphens-auto break-words sm:text-7xl">
+            <h2 className="font-heading text-3xl font-bold uppercase leading-[1] text-heading hyphens-auto break-words sm:text-4xl">
               {dict.home.screensTitle}
             </h2>
-            <p className="mt-6 max-w-md font-body text-lg leading-relaxed text-ink">{dict.home.screensLead}</p>
+            <p className="mt-6 max-w-sm font-body text-base leading-relaxed text-ink/90">{dict.home.screensLead}</p>
           </div>
           <div className="reveal">
             <UnlockDemo
@@ -117,24 +117,24 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </section>
 
       {/* An index of the inner pages, numbered like chapters */}
-      <section className="border-t border-line py-28 sm:py-36">
+      <section className="border-t border-line py-32 sm:py-48">
         <div className="mx-auto max-w-6xl px-5 sm:px-10">
-          <h2 className="reveal font-heading text-sm uppercase tracking-[0.3em] text-accent-soft">{dict.home.insideTitle}</h2>
-          <ol className="mt-10 border-t border-line">
+          <h2 className="reveal font-heading text-xs uppercase tracking-[0.3em] text-accent-soft">{dict.home.insideTitle}</h2>
+          <ol className="mt-14 border-t border-line">
             {inside.map((row, i) => (
               <li key={row.slug} className="reveal border-b border-line">
                 <Link
                   href={`/${lang}/${row.slug}`}
-                  className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 py-8 transition-colors hover:bg-surface sm:gap-10 sm:px-4"
+                  className="group grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-6 py-10 transition-colors hover:bg-surface sm:gap-12 sm:px-6 sm:py-12"
                 >
-                  <span aria-hidden="true" className="numeral text-6xl transition-colors group-hover:[-webkit-text-stroke-color:var(--color-accent-soft)] sm:text-8xl">
+                  <span aria-hidden="true" className="numeral text-5xl transition-colors group-hover:[-webkit-text-stroke-color:var(--color-accent-soft)] sm:text-6xl">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>
-                    <span className="block font-heading text-3xl font-bold uppercase leading-none text-heading sm:text-5xl">{row.title}</span>
-                    <span className="mt-3 block max-w-xl font-body text-muted">{row.text}</span>
+                    <span className="block font-heading text-2xl font-bold uppercase leading-none tracking-wide text-heading sm:text-3xl">{row.title}</span>
+                    <span className="mt-3 block max-w-lg font-body text-sm leading-relaxed text-muted sm:text-base">{row.text}</span>
                   </span>
-                  <ArrowIcon className="size-6 text-heading transition-transform duration-300 group-hover:translate-x-2" />
+                  <ArrowIcon className="size-5 text-heading transition-transform duration-300 group-hover:translate-x-2" />
                 </Link>
               </li>
             ))}

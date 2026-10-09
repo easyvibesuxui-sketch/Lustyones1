@@ -24,7 +24,7 @@ export function AdminDashboard({ t, lang }: Props) {
   ] satisfies { label: string; value: number; format: Intl.NumberFormatOptions }[];
 
   return (
-    <div className="animate-rise rounded-(--radius-panel) border border-line bg-surface/80 p-5 shadow-[0_40px_120px_-50px_rgba(201,163,82,0.5)] backdrop-blur sm:p-7" style={delay(200)}>
+    <div className="animate-rise rounded-(--radius-panel) border border-line bg-surface/80 p-6 shadow-[0_40px_120px_-50px_rgba(201,163,82,0.5)] backdrop-blur sm:p-10" style={delay(200)}>
       <div className="flex items-center justify-between">
         <p className="font-semibold text-ink">{t.title}</p>
         <p className="flex items-center gap-2 text-sm text-muted">
@@ -36,19 +36,19 @@ export function AdminDashboard({ t, lang }: Props) {
         </p>
       </div>
 
-      <dl className="mt-5 grid gap-3 sm:grid-cols-3">
+      <dl className="mt-8 grid gap-4 sm:grid-cols-3">
         {kpis.map((k, i) => (
-          <div key={k.label} className="animate-rise rounded-(--radius-panel) bg-night/70 p-4" style={delay(350 + i * 100)}>
+          <div key={k.label} className="animate-rise rounded-(--radius-panel) bg-night/70 p-5" style={delay(350 + i * 100)}>
             <dt className="text-sm text-muted">{k.label}</dt>
-            <dd className="mt-1 font-heading text-4xl font-bold text-heading">
+            <dd className="mt-2 font-heading text-3xl font-bold text-heading">
               <CountUp value={k.value} format={k.format} lang={lang} />
             </dd>
           </div>
         ))}
       </dl>
 
-      <div className="mt-5 grid gap-5 lg:grid-cols-[1.4fr_1fr]">
-        <figure className="min-w-0 rounded-(--radius-panel) bg-night/70 p-4">
+      <div className="mt-4 grid gap-4 lg:grid-cols-[1.4fr_1fr]">
+        <figure className="min-w-0 rounded-(--radius-panel) bg-night/70 p-5">
           <figcaption className="text-sm text-muted">{t.chart}</figcaption>
           <div className="mt-4 flex h-40 items-end gap-1.5" aria-hidden="true">
             {weeks.map((w, i) => (
@@ -61,7 +61,7 @@ export function AdminDashboard({ t, lang }: Props) {
           </div>
         </figure>
 
-        <div className="min-w-0 rounded-(--radius-panel) bg-night/70 p-4">
+        <div className="min-w-0 rounded-(--radius-panel) bg-night/70 p-5">
           <p className="text-sm text-muted">{t.activity}</p>
           <ul className="mt-3 flex flex-col gap-2.5">
             {activity.map((a, i) => (

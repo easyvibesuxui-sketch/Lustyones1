@@ -23,15 +23,15 @@ export default async function FaqPage({ params }: PageProps<"/[lang]/faq">) {
     <PageShell>
       <PageHero title={dict.faq.title} number={5} backdrop="/demo/velvet/bg.webp" />
 
-      <section className="mx-auto max-w-4xl px-4 pb-24 sm:px-6">
-        <div className="flex flex-col gap-3">
+      <section className="mx-auto max-w-3xl px-5 pb-32 sm:px-10 sm:pb-40">
+        <div className="flex flex-col gap-4">
           {dict.faq.items.map((item, i) => (
             <details
               key={item.q}
-              className="faq animate-rise group rounded-(--radius-panel) border border-line bg-surface/40 px-6 transition-colors open:border-accent/60 open:bg-surface hover:border-heading/40"
+              className="faq animate-rise group rounded-(--radius-panel) border border-line bg-surface/40 px-6 sm:px-8 transition-colors open:border-accent/60 open:bg-surface hover:border-heading/40"
               style={delay(150 + i * 80)}
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 font-body text-lg text-ink [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-7 font-body text-base text-ink sm:text-lg [&::-webkit-details-marker]:hidden">
                 {item.q}
                 <span
                   aria-hidden="true"
@@ -40,7 +40,7 @@ export default async function FaqPage({ params }: PageProps<"/[lang]/faq">) {
                   +
                 </span>
               </summary>
-              <p className="max-w-2xl pb-6 leading-relaxed text-muted">{item.a}</p>
+              <p className="max-w-2xl pb-8 text-sm leading-relaxed text-muted sm:text-base">{item.a}</p>
             </details>
           ))}
         </div>

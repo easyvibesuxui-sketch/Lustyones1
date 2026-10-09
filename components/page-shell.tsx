@@ -28,17 +28,17 @@ export function PageHero({ title, lead, number, backdrop, children }: HeroProps)
   return (
     <section className="relative overflow-hidden">
       {backdrop && <Backdrop src={backdrop} />}
-      <div className="relative mx-auto max-w-6xl px-5 pb-16 pt-36 sm:px-10 sm:pb-24 sm:pt-48">
+      <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-40 sm:px-10 sm:pb-28 sm:pt-56">
         {number !== undefined && (
-          <span aria-hidden="true" className="numeral parallax pointer-events-none absolute right-2 top-20 text-[9rem] sm:right-10 sm:text-[16rem]">
+          <span aria-hidden="true" className="numeral parallax pointer-events-none absolute right-4 top-24 text-[6rem] sm:right-10 sm:text-[10rem]">
             {String(number).padStart(2, "0")}
           </span>
         )}
-        <h1 className="animate-rise relative max-w-4xl font-heading text-5xl font-bold uppercase leading-[0.92] text-heading hyphens-auto break-words sm:text-7xl lg:text-8xl">
+        <h1 className="animate-rise relative max-w-3xl font-heading text-4xl font-bold uppercase leading-[1] text-heading hyphens-auto break-words sm:text-5xl lg:text-6xl">
           {title}
         </h1>
         {lead && (
-          <p className="animate-rise relative mt-7 max-w-2xl font-body text-lg leading-relaxed text-ink sm:text-xl" style={delay(120)}>
+          <p className="animate-rise relative mt-8 max-w-xl font-body text-base leading-relaxed text-ink/90 sm:text-lg" style={delay(120)}>
             {lead}
           </p>
         )}

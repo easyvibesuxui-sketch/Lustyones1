@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 // Wordmark with a keyhole in place of the "o".
 export function Logo() {
   return (
-    <span className="font-body text-lg uppercase tracking-[0.22em] text-heading sm:text-xl">
+    <span className="font-body text-base uppercase tracking-[0.25em] text-heading sm:text-lg">
       <span aria-hidden="true" className="flex items-center">
         <span>Unl</span>
         <svg viewBox="0 0 16 20" width="12" height="16" className="mx-[0.1em] text-accent-soft" fill="currentColor">

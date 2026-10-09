@@ -26,18 +26,18 @@ export default async function HowItWorksPage({ params }: PageProps<"/[lang]/how-
     <PageShell>
       <PageHero title={dict.funnel.title} lead={dict.funnel.lead} number={2} backdrop="/demo/neon/bg.webp" />
 
-      <section className="mx-auto grid max-w-6xl gap-16 px-5 pb-24 pt-6 sm:px-10 lg:grid-cols-[minmax(0,1fr)_auto]">
+      <section className="mx-auto grid max-w-6xl gap-20 px-5 pb-32 pt-8 sm:px-10 sm:pb-40 lg:grid-cols-[minmax(0,1fr)_auto]">
         {/* A real sequence, so the steps are numbered */}
         <ol className="flex flex-col">
           {dict.funnel.steps.map((step, i) => (
-            <li key={step.title} className="reveal grid gap-4 border-t border-line py-10 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-8">
-              <span aria-hidden="true" className="numeral text-8xl">
+            <li key={step.title} className="reveal grid gap-5 border-t border-line py-14 sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-10 sm:py-16">
+              <span aria-hidden="true" className="numeral text-6xl">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div>
-                <h2 className="font-heading text-4xl font-bold uppercase leading-none text-heading sm:text-5xl">{step.title}</h2>
-                <p className="mt-3 font-body text-lg text-muted">{step.text}</p>
-                <ul className="mt-6 flex flex-col gap-3 font-body text-ink">
+                <h2 className="font-heading text-2xl font-bold uppercase leading-none tracking-wide text-heading sm:text-3xl">{step.title}</h2>
+                <p className="mt-4 font-body text-base text-muted">{step.text}</p>
+                <ul className="mt-7 flex flex-col gap-3 font-body text-sm text-ink/90 sm:text-base">
                   {step.items.map((item) => (
                     <li key={item} className="flex gap-3">
                       <span className="mt-2.5 size-1.5 shrink-0 bg-accent" aria-hidden="true" />

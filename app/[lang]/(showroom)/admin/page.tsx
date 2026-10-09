@@ -23,22 +23,22 @@ export default async function AdminPage({ params }: PageProps<"/[lang]/admin">) 
     <PageShell>
       <PageHero title={dict.admin.title} lead={dict.admin.lead} number={3} backdrop="/demo/editorial/bg.webp" />
 
-      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+      <section className="mx-auto max-w-6xl px-5 pb-28 sm:px-10 sm:pb-36">
         <AdminDashboard t={dict.dashboard} lang={lang} />
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-        <dl className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="mx-auto max-w-6xl px-5 pb-32 sm:px-10 sm:pb-40">
+        <dl className="grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
           {dict.admin.items.map((item, i) => (
             <div
               key={item.title}
               className="reveal group border-t border-line pt-6 transition-colors duration-300 hover:border-accent"
             >
-              <span aria-hidden="true" className="numeral text-6xl transition-colors group-hover:[-webkit-text-stroke-color:var(--color-accent-soft)]">
+              <span aria-hidden="true" className="numeral text-5xl transition-colors group-hover:[-webkit-text-stroke-color:var(--color-accent-soft)]">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <dt className="mt-4 font-heading text-xl font-bold uppercase tracking-wide text-heading">{item.title}</dt>
-              <dd className="mt-2 font-body leading-relaxed text-muted">{item.text}</dd>
+              <dt className="mt-5 font-heading text-lg font-bold uppercase tracking-wide text-heading">{item.title}</dt>
+              <dd className="mt-3 font-body text-sm leading-relaxed text-muted">{item.text}</dd>
             </div>
           ))}
         </dl>
