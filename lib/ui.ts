@@ -12,3 +12,6 @@ export const keyLink =
 
 // Start delay for `.animate-rise`, `.animate-float` and friends.
 export const delay = (ms: number) => ({ "--delay": `${ms}ms` }) as CSSProperties;
+
+// Start delay for pieces of a home-page chapter as it comes on stage (`.ch-in`, `.ch-line`).
+export const enterAt = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;

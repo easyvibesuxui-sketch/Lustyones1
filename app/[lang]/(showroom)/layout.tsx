@@ -3,6 +3,7 @@ import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { asset } from "@/lib/asset";
 
 // Studio pages: the showroom header and footer around the content.
 export default async function ShowroomLayout({ children, params }: LayoutProps<"/[lang]">) {
@@ -16,6 +17,7 @@ export default async function ShowroomLayout({ children, params }: LayoutProps<"
       <main className="flex-1">{children}</main>
       <Footer lang={lang} dict={dict} />
       <div className="grain" aria-hidden="true" />
+      <div className="grunge" aria-hidden="true" style={{ backgroundImage: `url(${asset("/showroom/grunge.png")})` }} />
     </div>
   );
 }

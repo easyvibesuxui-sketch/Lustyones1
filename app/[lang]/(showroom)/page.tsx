@@ -3,9 +3,8 @@ import { notFound } from "next/navigation";
 import { isLocale } from "@/lib/i18n/config";
 import { getDictionary } from "@/lib/i18n/get-dictionary";
 import { templates } from "@/lib/templates";
-import { delay, keyLink, primaryButton } from "@/lib/ui";
-import { Chapter } from "@/components/chapter";
-import { ChapterNav } from "@/components/chapter-nav";
+import { enterAt, keyLink, primaryButton } from "@/lib/ui";
+import { ChapterStage, type Slide } from "@/components/chapter-stage";
 import { CtaBand } from "@/components/cta-band";
 import { ArrowIcon, KeyIcon } from "@/components/icons";
 import { PageShell } from "@/components/page-shell";
@@ -16,7 +15,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   if (!isLocale(lang)) notFound();
   const dict = await getDictionary(lang);
   const shown = templates.filter((t) => t.images.scene && t.images.backdrop);
-  const chapterIds = ["intro", ...shown.map((t) => t.id)];
 
   // The rest of the studio, one door per inner page.
   const inside = [
@@ -26,64 +24,76 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     { slug: "faq", title: dict.nav.faq, text: dict.faq.items[0].q },
   ];
 
-  return (
-    <PageShell>
-      <ChapterNav ids={chapterIds} />
-
-      <Chapter id="intro" backdrop="/showroom/intro-bg.webp" scene="/showroom/intro-scene.webp" next={shown[0]?.id}>
-        <h1 className="animate-rise font-heading text-[2.75rem] font-bold uppercase leading-[0.92] text-heading hyphens-auto break-words sm:text-7xl xl:text-8xl">
-          {dict.hero.title}
-        </h1>
-        <p className="animate-rise mt-7 max-w-xl font-body text-lg leading-relaxed text-ink" style={delay(150)}>
-          {dict.hero.lead}
-        </p>
-        <div className="animate-rise mt-10 flex flex-col items-start gap-7 sm:flex-row sm:items-center" style={delay(300)}>
-          <Link href={`/${lang}/templates`} className={primaryButton}>
-            {dict.hero.primary}
-          </Link>
-          <Link href={`/${lang}/order`} className={keyLink}>
-            {dict.hero.secondary}
-            <KeyIcon className="transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
-        <ul className="animate-rise mt-12 flex flex-wrap gap-x-6 gap-y-2 font-heading text-sm uppercase tracking-widest text-muted" style={delay(450)}>
-          {dict.hero.facts.map((fact) => (
-            <li key={fact} className="flex items-center gap-2">
-              <span className="size-1 bg-accent" aria-hidden="true" />
-              {fact}
-            </li>
-          ))}
-        </ul>
-      </Chapter>
-
-      {shown.map((t, i) => (
-        <Chapter
-          key={t.id}
-          id={t.id}
-          number={i + 1}
-          backdrop={t.images.backdrop!}
-          scene={t.images.scene!}
-          next={shown[i + 1]?.id ?? "screens"}
-        >
-          <h2 className="reveal font-heading text-7xl font-bold uppercase leading-[0.85] text-heading sm:text-8xl lg:text-9xl">{t.name}</h2>
-          <p className="reveal mt-6 max-w-md font-body text-xl leading-relaxed text-ink">{dict.templates[t.id].description}</p>
-          <p className="reveal mt-3 font-heading text-sm uppercase tracking-widest text-muted">
+  // One full screen per chapter: the studio, then each template.
+  const slides: Slide[] = [
+    {
+      id: "intro",
+      backdrop: "/showroom/intro-bg.webp",
+      scene: "/showroom/intro-scene.webp",
+      content: (
+        <>
+          <h1 className="ch-in font-heading text-[2.6rem] font-bold uppercase leading-[0.92] text-heading hyphens-auto break-words sm:text-6xl xl:text-7xl" style={enterAt(500)}>
+            {dict.hero.title}
+          </h1>
+          <p className="ch-in mt-6 hidden max-w-lg font-body text-lg leading-relaxed text-ink sm:block" style={enterAt(700)}>
+            {dict.hero.lead}
+          </p>
+          <div className="ch-in mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center" style={enterAt(850)}>
+            <Link href={`/${lang}/templates`} className={primaryButton}>
+              {dict.hero.primary}
+            </Link>
+            <Link href={`/${lang}/order`} className={keyLink}>
+              {dict.hero.secondary}
+              <KeyIcon className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </>
+      ),
+    },
+    ...shown.map((t, i) => ({
+      id: t.id,
+      number: i + 1,
+      backdrop: t.images.backdrop!,
+      scene: t.images.scene!,
+      content: (
+        <>
+          <h2 className="ch-in font-heading text-7xl font-bold uppercase leading-[0.85] text-heading sm:text-8xl lg:text-9xl" style={enterAt(550)}>
+            {t.name}
+          </h2>
+          <p className="ch-in mt-5 max-w-md font-body text-xl leading-relaxed text-ink" style={enterAt(700)}>
+            {dict.templates[t.id].description}
+          </p>
+          <p className="ch-in mt-2 font-heading text-sm uppercase tracking-widest text-muted" style={enterAt(780)}>
             {dict.listing.bestFor}: {dict.templates[t.id].bestFor}
           </p>
-          <div className="reveal mt-10 flex flex-wrap items-center gap-x-10 gap-y-5">
-            <Link href={`/${lang}/demo/${t.id}`} className={keyLink}>
-              {dict.listing.preview}
-              <KeyIcon className="transition-transform group-hover:translate-x-1" />
+          <div className="mt-9 flex flex-wrap items-center gap-x-10 gap-y-5">
+            <Link
+              href={`/${lang}/demo/${t.id}`}
+              data-enter={`/${lang}/demo/${t.id}`}
+              className="group relative inline-flex items-center gap-4 pb-2 font-heading text-lg font-medium uppercase tracking-wider text-heading transition-colors hover:text-accent-soft"
+            >
+              <span className="ch-in" style={enterAt(1100)}>
+                {dict.listing.preview}
+              </span>
+              <KeyIcon className="ch-in transition-transform group-hover:translate-x-1" />
+              <span aria-hidden="true" className="ch-line absolute inset-x-0 bottom-0 h-px bg-current" style={enterAt(900)} />
             </Link>
             <Link
               href={`/${lang}/order`}
-              className="font-heading text-base uppercase tracking-widest text-muted transition-colors hover:text-accent-soft"
+              className="ch-in font-heading text-base uppercase tracking-widest text-muted transition-colors hover:text-accent-soft"
+              style={enterAt(1200)}
             >
               {dict.listing.orderThis} · {t.price}
             </Link>
           </div>
-        </Chapter>
-      ))}
+        </>
+      ),
+    })),
+  ];
+
+  return (
+    <PageShell>
+      <ChapterStage slides={slides} />
 
       {/* The same site on a laptop and a phone */}
       <section id="screens" className="relative overflow-hidden border-t border-line py-28 sm:py-36">

@@ -58,6 +58,7 @@ export function Keyhole({ id, src, className = "" }: Props) {
           style={{ transform: "translate(calc(var(--mx, 0) * -8px), calc(var(--my, 0) * -8px))" }}
         />
       </g>
+      <path d={keyholePath} className="keyhole-flash" fill="rgb(243 236 228)" />
       <path d={keyholePath} fill="none" stroke="rgb(243 236 228 / 0.85)" strokeWidth="0.35" />
     </svg>
   );

@@ -26,8 +26,13 @@ npm run build   # static site in out/
 ## Look
 
 Cinematic and dark: each home-page chapter is a blurred photo with the same photo shown sharp through a keyhole
-(`components/chapter.tsx`, `components/keyhole.tsx`), big outlined numerals, film grain over everything, and a full-screen
-"Menu" (`components/menu-overlay.tsx`). Each template's keyhole photo and backdrop are `scene.webp` and `bg.webp` in
+(`components/chapter-stage.tsx`, `components/keyhole.tsx`), big outlined numerals, film grain plus dust and scratches
+(`public/showroom/grunge.png`) over everything, and a full-screen "Menu" (`components/menu-overlay.tsx`).
+
+The home page's chapters don't scroll past: the stage stays pinned and each screen of scrolling (one wheel notch) swaps to
+the next chapter. The old one fades, the new one builds up (keyhole flash, text rising, the "View live demo" underline
+drawing in). "View live demo" opens through the keyhole: it widens to fill the screen, then the demo loads. After the
+last chapter the page scrolls normally. Each template's keyhole photo and backdrop are `scene.webp` and `bg.webp` in
 `public/demo/<template>/`; the opening chapter's are in `public/showroom/`.
 
 ## Motion
