@@ -23,7 +23,9 @@ export type Template = {
   // Demo images under public/, e.g. "/demo/neon/01.webp". Empty until images are added.
   // `scene` is a portrait crop for small thumbnails; `backdrop` a blurred landscape version of the same photo.
   // `stage` is the photo for the home page keyhole: the sharp portrait, a blurred wide copy of it,
-  // its width / height, and the point (0-1 across, 0-1 down) that should sit in the keyhole's round opening.
+  // its width / height, the point (0-1 across, 0-1 down) that should sit in the keyhole's round opening,
+  // and optionally its height as a share of the screen's (default 1.4). Stage file names carry a short
+  // content hash, so a replaced photo gets a new URL and browsers don't show a cached old one.
   images: {
     avatar?: string;
     cover?: string;
@@ -34,7 +36,7 @@ export type Template = {
   };
 };
 
-export type Stage = { src: string; backdrop: string; ratio: number; focus: [x: number, y: number] };
+export type Stage = { src: string; backdrop: string; ratio: number; focus: [x: number, y: number]; zoom?: number };
 
 export type PlanId = "month" | "three" | "six";
 
@@ -70,7 +72,7 @@ export const templates: Template[] = [
       cover: "/demo/velvet/cover.webp",
       scene: "/demo/velvet/scene.webp",
       backdrop: "/demo/velvet/bg.webp",
-      stage: { src: "/demo/velvet/stage.webp", backdrop: "/demo/velvet/stage-bg.webp", ratio: 0.562, focus: [0.5, 0.2] },
+      stage: { src: "/demo/velvet/stage.489d6743.webp", backdrop: "/demo/velvet/stage-bg.d5b36cfe.webp", ratio: 0.562, focus: [0.5, 0.2] },
       feed: ["/demo/velvet/01.webp", "/demo/velvet/02.webp", "/demo/velvet/03.webp", "/demo/velvet/04.webp", "/demo/velvet/05.webp", "/demo/velvet/06.webp", "/demo/velvet/07.webp", "/demo/velvet/08.webp", "/demo/velvet/09.webp"],
     },
   },
@@ -95,7 +97,7 @@ export const templates: Template[] = [
       cover: "/demo/bloom/cover.webp",
       scene: "/demo/bloom/scene.webp",
       backdrop: "/demo/bloom/bg.webp",
-      stage: { src: "/demo/bloom/stage.webp", backdrop: "/demo/bloom/stage-bg.webp", ratio: 1.042, focus: [0.6, 0.64] },
+      stage: { src: "/demo/bloom/stage.f2c3e077.webp", backdrop: "/demo/bloom/stage-bg.549f837c.webp", ratio: 0.97, focus: [0.48, 0.5], zoom: 1 },
       feed: ["/demo/bloom/01.webp", "/demo/bloom/02.webp", "/demo/bloom/03.webp", "/demo/bloom/04.webp", "/demo/bloom/05.webp", "/demo/bloom/06.webp", "/demo/bloom/07.webp", "/demo/bloom/08.webp", "/demo/bloom/09.webp"],
     },
   },
@@ -120,7 +122,7 @@ export const templates: Template[] = [
       cover: "/demo/neon/cover.webp",
       scene: "/demo/neon/scene.webp",
       backdrop: "/demo/neon/bg.webp",
-      stage: { src: "/demo/neon/stage.webp", backdrop: "/demo/neon/stage-bg.webp", ratio: 0.926, focus: [0.45, 0.4] },
+      stage: { src: "/demo/neon/stage.0e4e0de5.webp", backdrop: "/demo/neon/stage-bg.c0907af5.webp", ratio: 0.926, focus: [0.45, 0.4] },
       feed: ["/demo/neon/01.webp", "/demo/neon/02.webp", "/demo/neon/03.webp", "/demo/neon/04.webp", "/demo/neon/05.webp", "/demo/neon/06.webp", "/demo/neon/07.webp", "/demo/neon/08.webp", "/demo/neon/09.webp"],
     },
   },
@@ -145,7 +147,7 @@ export const templates: Template[] = [
       cover: "/demo/editorial/cover.webp",
       scene: "/demo/editorial/scene.webp",
       backdrop: "/demo/editorial/bg.webp",
-      stage: { src: "/demo/editorial/stage.webp", backdrop: "/demo/editorial/stage-bg.webp", ratio: 0.839, focus: [0.72, 0.38] },
+      stage: { src: "/demo/editorial/stage.61f5da84.webp", backdrop: "/demo/editorial/stage-bg.8852bbdb.webp", ratio: 0.562, focus: [0.5, 0.32] },
       feed: ["/demo/editorial/01.webp", "/demo/editorial/02.webp", "/demo/editorial/03.webp", "/demo/editorial/04.webp", "/demo/editorial/05.webp", "/demo/editorial/06.webp", "/demo/editorial/07.webp", "/demo/editorial/08.webp", "/demo/editorial/09.webp"],
     },
   },

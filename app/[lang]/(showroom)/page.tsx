@@ -28,7 +28,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const slides: Slide[] = [
     {
       id: "intro",
-      stage: { src: "/showroom/intro-stage.webp", backdrop: "/showroom/intro-stage-bg.webp", ratio: 0.852, focus: [0.6, 0.3] },
+      stage: { src: "/showroom/intro-stage.12466779.webp", backdrop: "/showroom/intro-stage-bg.60004db3.webp", ratio: 0.852, focus: [0.6, 0.3] },
       content: (
         <>
           <h1 className="ch-in max-w-[34rem] font-heading text-[2rem] font-bold uppercase leading-[1.02] text-heading hyphens-auto break-words sm:text-4xl xl:text-5xl" style={enterAt(500)}>

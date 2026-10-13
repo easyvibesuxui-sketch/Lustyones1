@@ -14,8 +14,8 @@ const enterMs = 1100;
 // The photo of one chapter: the sharp portrait standing over a blurred, wider copy of itself.
 // The portrait is placed so its `focus` point sits in the keyhole's round opening.
 function Scene({ stage }: { stage: Stage }) {
-  const { src, backdrop, ratio, focus } = stage;
-  const place = { "--r": ratio, "--fx": focus[0], "--fy": focus[1] } as CSSProperties;
+  const { src, backdrop, ratio, focus, zoom } = stage;
+  const place = { "--r": ratio, "--fx": focus[0], "--fy": focus[1], "--photo": zoom && `${zoom * 100}cqh` } as CSSProperties;
   return (
     <>
       <div className="absolute inset-0 scale-110 bg-cover bg-center" style={{ backgroundImage: `url(${asset(backdrop)})` }} />
