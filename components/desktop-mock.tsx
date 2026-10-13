@@ -138,7 +138,7 @@ export function DesktopMock({ template, mock, planCopy, lang, unlocked = false }
                 <p className={`font-semibold ${fontClass[theme.font]}`} style={{ fontSize: u(20) }}>
                   {planCopy.title}
                 </p>
-                {plans.map((p) => {
+                {plans.slice(0, 3).map((p) => {
                   const picked = p.id === "three";
                   return (
                     <div

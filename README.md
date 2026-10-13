@@ -57,9 +57,19 @@ Until images are added, the previews use abstract colour placeholders.
 ## Live demos
 
 `/<lang>/demo/<template>` (e.g. `/en/demo/velvet`) is a full creator page in that template's theme, built from
-`components/demo/demo-site.tsx`. Everything is simulated in the browser: the 18+ gate (remembered in `localStorage`),
-subscription plans and checkout, a pay-per-view post, the welcome message, tips with a goal bar, and a poll.
-Demo pages are marked `noindex`. Their text lives under `demo` in each dictionary.
+`components/demo/demo-site.tsx`. Everything is simulated in the browser: the age gate (a plain 18+ confirmation, or
+an ID / face check in regions set to strict; remembered in `localStorage`), Fan and VIP tiers with 1/3/6/12-month
+bundles, a trial with the renewal consent and reminder card networks require, promo codes, checkout through the
+chosen payment provider, a pay-per-view post, free email previews, the welcome message, tips with a goal bar, a poll,
+the 2257 statement and a content report form.
+
+`/<lang>/demo/<template>/admin` is the same creator's admin panel (`components/demo/creator-admin.tsx`): the fan list
+with filters and CSV export, tier prices, bundles, the trial and promo codes, payment providers and the statement name,
+and compliance (age checks by region, people in the content, reports, the 2257 custodian). Both pages share one state
+per template (`lib/demo-store.ts`, kept in `localStorage`), so a fan who subscribes on the site appears in the admin,
+and a setting changed in the admin shows on the site.
+
+Demo pages are marked `noindex`. Their text lives under `demo` and `studio` in each dictionary.
 
 ## How the language is chosen
 

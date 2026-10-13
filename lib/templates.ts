@@ -38,13 +38,15 @@ export type Template = {
 
 export type Stage = { src: string; backdrop: string; ratio: number; focus: [x: number, y: number]; zoom?: number };
 
-export type PlanId = "month" | "three" | "six";
+export type PlanId = "month" | "three" | "six" | "twelve";
 
-// The subscription offer every demo creator page shows.
+// The subscription offer every demo creator page shows: the base tier's price for each bundle length.
+// Live demos work prices out from the creator's settings instead (lib/demo-store.ts).
 export const plans: { id: PlanId; months: number; price: number; save: number }[] = [
   { id: "month", months: 1, price: 9.99, save: 0 },
   { id: "three", months: 3, price: 25.47, save: 15 },
   { id: "six", months: 6, price: 44.95, save: 25 },
+  { id: "twelve", months: 12, price: 77.92, save: 35 },
 ];
 
 // Templates whose feed uses two wide columns instead of three.

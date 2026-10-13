@@ -4,10 +4,12 @@ import type { Dictionary } from "@/lib/i18n/get-dictionary";
 import type { Locale } from "@/lib/i18n/config";
 import { Logo } from "../logo";
 
-type Props = { lang: Locale; current: TemplateId; t: Dictionary["demo"]["bar"] };
+type Props = { lang: Locale; current: TemplateId; t: Dictionary["demo"]["bar"]; view?: "site" | "admin" };
 
-// Studio bar above a live demo: back to the showroom, switch template, order.
-export function DemoBar({ lang, current, t }: Props) {
+// Studio bar above a live demo: back to the showroom, switch template, switch between the fan site
+// and the creator's admin, order.
+export function DemoBar({ lang, current, t, view = "site" }: Props) {
+  const path = (id: TemplateId, v = view) => `/${lang}/demo/${id}${v === "admin" ? "/admin" : ""}`;
   return (
     <div className="sticky top-0 z-40 border-b border-line bg-night text-ink">
       <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4 sm:px-6">
@@ -26,7 +28,7 @@ export function DemoBar({ lang, current, t }: Props) {
             {templates.map((tpl) => (
               <li key={tpl.id}>
                 <Link
-                  href={`/${lang}/demo/${tpl.id}`}
+                  href={path(tpl.id)}
                   aria-current={tpl.id === current ? "page" : undefined}
                   className="block rounded-(--radius-control) px-3 py-1.5 text-sm text-muted hover:text-ink aria-[current=page]:bg-heading aria-[current=page]:text-night"
                 >
@@ -36,6 +38,19 @@ export function DemoBar({ lang, current, t }: Props) {
             ))}
           </ul>
         </nav>
+
+        <div className="flex shrink-0 rounded-(--radius-control) border border-line p-0.5 text-xs">
+          {(["site", "admin"] as const).map((v) => (
+            <Link
+              key={v}
+              href={path(current, v)}
+              aria-current={v === view ? "page" : undefined}
+              className="rounded-[2px] px-2.5 py-1.5 text-muted hover:text-ink aria-[current=page]:bg-accent aria-[current=page]:font-semibold aria-[current=page]:text-night"
+            >
+              {v === "site" ? t.fanView : t.adminView}
+            </Link>
+          ))}
+        </div>
 
         <Link
           href={`/${lang}/order?template=${current}`}
