@@ -6,21 +6,22 @@ import { asset } from "@/lib/asset";
 import type { Stage } from "@/lib/templates";
 import { LineArrowDown } from "./icons";
 
-export type Slide = { id: string; number?: number; backdrop: string; stage: Stage; content: ReactNode };
+export type Slide = { id: string; number?: number; stage: Stage; content: ReactNode };
 
 const lockMs = 1400;
 const enterMs = 1100;
 
 // The photo of one chapter: the sharp portrait standing over a blurred, wider copy of itself.
 // The portrait is placed so its `focus` point sits in the keyhole's round opening.
-function Scene({ slide }: { slide: Slide }) {
-  const { src, ratio, focus } = slide.stage;
+function Scene({ stage }: { stage: Stage }) {
+  const { src, backdrop, ratio, focus } = stage;
+  const place = { "--r": ratio, "--fx": focus[0], "--fy": focus[1] } as CSSProperties;
   return (
     <>
-      <div className="absolute inset-0 scale-110 bg-cover bg-center" style={{ backgroundImage: `url(${asset(slide.backdrop)})` }} />
+      <div className="absolute inset-0 scale-110 bg-cover bg-center" style={{ backgroundImage: `url(${asset(backdrop)})` }} />
       <div
         className="ch-photo absolute bg-cover bg-center"
-        style={{ backgroundImage: `url(${asset(src)})`, aspectRatio: ratio, "--f": focus } as CSSProperties}
+        style={{ backgroundImage: `url(${asset(src)})`, ...place }}
       />
     </>
   );
@@ -117,7 +118,7 @@ export function ChapterStage({ slides }: { slides: Slide[] }) {
               {/* The photo in the dark, around the keyhole */}
               <div className="ch-open absolute inset-0">
                 <div className="flicker absolute inset-0">
-                  <Scene slide={s} />
+                  <Scene stage={s.stage} />
                 </div>
                 <div className="absolute inset-0 bg-night/50" />
                 <div className="vignette absolute inset-0" />
@@ -125,7 +126,7 @@ export function ChapterStage({ slides }: { slides: Slide[] }) {
               {/* The same photo, lit, through the keyhole */}
               <div className="ch-hole absolute inset-0">
                 <div className="ch-lit absolute inset-0">
-                  <Scene slide={s} />
+                  <Scene stage={s.stage} />
                 </div>
               </div>
             </div>

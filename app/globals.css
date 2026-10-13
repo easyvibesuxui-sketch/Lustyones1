@@ -343,7 +343,7 @@ details.faq[open]::details-content {
   --kh0: 44cqh;
   --kh: var(--kh0);
   --open: 450cqmax;
-  --photo: 130cqh;
+  --photo: 140cqh;
   opacity: 0;
   visibility: hidden;
   transition:
@@ -387,14 +387,17 @@ details.faq[open]::details-content {
   --size: var(--open);
 }
 
-/* The portrait: --photo tall, centred on the keyhole, its --f point in the opening,
-   fading out at its sides into the blurred copy behind it. */
+/* The portrait: --photo tall, with its focus point (--fx, --fy) in the keyhole's opening.
+   Its edges fade into the blurred copy behind it. */
 .ch-photo {
   height: var(--photo);
-  left: var(--kx);
-  top: calc(var(--ky) - var(--f) * var(--photo));
-  translate: -50% 0;
-  mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+  width: calc(var(--photo) * var(--r));
+  left: calc(var(--kx) - var(--fx) * var(--photo) * var(--r));
+  top: calc(var(--ky) - var(--fy) * var(--photo));
+  mask-image:
+    linear-gradient(to right, transparent, #000 18%, #000 82%, transparent),
+    linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent);
+  mask-composite: intersect;
 }
 
 .ch-lit,
