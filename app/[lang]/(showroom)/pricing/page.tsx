@@ -54,7 +54,7 @@ export default async function PricingPage({ params }: PageProps<"/[lang]/pricing
                       </li>
                     ))}
                   </ul>
-                  <Link href={`/${lang}/order`} className={`${featured ? primaryButton : secondaryButton} mt-auto translate-y-0`}>
+                  <Link href={`/${lang}/order?plan=${plan.id}`} className={`${featured ? primaryButton : secondaryButton} mt-auto translate-y-0`}>
                     {dict.pricing.order}
                   </Link>
                 </div>

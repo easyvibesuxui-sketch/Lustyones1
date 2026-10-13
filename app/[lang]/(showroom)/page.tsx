@@ -77,7 +77,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <span aria-hidden="true" className="ch-line absolute inset-x-0 bottom-0 h-px bg-current" style={enterAt(900)} />
             </Link>
             <Link
-              href={`/${lang}/order`}
+              href={`/${lang}/order?template=${t.id}`}
               className="ch-in font-heading text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-accent-soft"
               style={enterAt(1200)}
             >

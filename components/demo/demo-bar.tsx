@@ -38,7 +38,7 @@ export function DemoBar({ lang, current, t }: Props) {
         </nav>
 
         <Link
-          href={`/${lang}/order`}
+          href={`/${lang}/order?template=${current}`}
           className="hidden shrink-0 rounded-(--radius-control) bg-accent px-4 py-2 text-sm font-semibold text-night hover:bg-accent-soft md:inline-block"
         >
           {t.order}

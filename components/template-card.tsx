@@ -49,7 +49,7 @@ export function TemplateCard({ template, dict, lang }: Props) {
             <KeyIcon className="transition-transform group-hover/link:translate-x-1" />
           </Link>
           <Link
-            href={`/${lang}/order`}
+            href={`/${lang}/order?template=${template.id}`}
             className="font-heading text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-accent-soft"
           >
             {dict.listing.orderThis}
