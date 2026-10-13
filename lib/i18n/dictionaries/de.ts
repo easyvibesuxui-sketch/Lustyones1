@@ -94,13 +94,13 @@ const de = {
       { title: "Wasserzeichen pro Abonnent", text: "Jede Kopie trägt den Namen des Käufers, damit sich Leaks zurückverfolgen lassen." },
       { title: "Fans und Nachrichten", text: "Sieh, wer am meisten ausgibt, schreibe Fan-Gruppen an und verkaufe Inhalte per Nachricht." },
       { title: "Kampagnen", text: "Rabattcodes, Links für Gratis-Testphasen und welcher Social-Link zahlende Fans bringt." },
-      { title: "Zahlungen", text: "Stripe, CCBill, Segpay, Verotel oder Krypto, je nach Inhalt." },
+      { title: "Zahlungen", text: "Trag nach der Freigabe die Daten deines Anbieters ein: Stripe, CCBill, Segpay, Verotel oder Krypto." },
       { title: "Compliance", text: "Altersabfrage, Anbindung an Altersverifikation, Cookie-Einwilligung, Rechtstexte, KI-Kennzeichnung und Länder-Sperre." },
     ],
   },
   pricing: {
     title: "Preise",
-    lead: "Eine Zahlung für die Website. Nach der Übergabe gehört sie samt Inhalt dem Creator.",
+    lead: "Eine Zahlung. Wir bauen die Website, übergeben Website und Admin und ziehen uns zurück. Alles darauf gehört der Creatorin oder dem Creator.",
     popular: "Am häufigsten gewählt",
     order: "Bestellen",
     plans: [
@@ -108,15 +108,15 @@ const de = {
         id: "starter",
         name: "Starter",
         price: "490 $",
-        text: "Eine Vorlage in deinem Branding, auf deinem Server installiert.",
-        features: ["Jede Vorlage", "Dein Logo, deine Farben und Schriften", "Installation und Domain-Einrichtung"],
+        text: "Eine Vorlage in deiner Marke, startklar übergeben.",
+        features: ["Jede Vorlage", "Dein Logo, deine Farben und Schriften", "Installiert auf deinem Hosting und deiner Domain", "Admin-Zugang und eine Übergabe-Anleitung"],
       },
       {
         id: "pro",
         name: "Pro",
         price: "1.290 $",
-        text: "Ab dem ersten Tag bereit für Zahlungen.",
-        features: ["Alles aus Starter", "Zahlungsanbieter angebunden", "Automatisierungen eingerichtet", "Eine Stunde Einweisung"],
+        text: "Bereit für die Prüfung durch einen Zahlungsanbieter.",
+        features: ["Alles aus Starter", "Rechtliche Seiten, Altersprüfung und Einwilligungsnachweise eingerichtet", "Eine Checkliste für den Antrag bei CCBill, Segpay und anderen", "Ein aufgezeichneter Rundgang durch den Admin"],
       },
       {
         id: "custom",
@@ -126,7 +126,7 @@ const de = {
         features: ["Alles aus Pro", "Dein eigenes Design", "Zusätzliche Funktionen auf Anfrage"],
       },
     ],
-    support: "Updates und Support sind optional: 49 $ pro Monat.",
+    support: "Keine monatlichen Kosten. Fehler aus den ersten 30 Tagen beheben wir kostenlos; danach läuft die Website ohne uns.",
   },
   process: {
     title: "So läuft eine Bestellung ab",
@@ -141,10 +141,14 @@ const de = {
     title: "Fragen",
     items: [
       { q: "Wem gehört die Website?", a: "Dem Creator. Nach der Übergabe haben wir keinen Zugriff, außer er gibt ihn uns." },
+      {
+        q: "Brauche ich euch nach der Übergabe noch?",
+        a: "Nein. Posts, Preise, Fans, Gutscheincodes, Zahlungen und Compliance verwaltest du im Admin, und die Übergabe-Anleitung erklärt alles Schritt für Schritt. Fehler aus den ersten 30 Tagen beheben wir kostenlos.",
+      },
       { q: "Hostet ihr die Inhalte oder seht ihr sie?", a: "Nein. Der Creator lädt auf seinen eigenen Server und Speicher hoch. Wir haben seine Inhalte nie." },
       {
         q: "Welche Zahlungsanbieter funktionieren?",
-        a: "Stripe für die meisten Creator. Stripe erlaubt keine Inhalte für Erwachsene; dafür binden wir CCBill, Segpay, Verotel oder Krypto an. Der Creator eröffnet das Händlerkonto, wir richten es ein.",
+        a: "Die Creatorin oder der Creator beantragt ein Konto bei einem Anbieter, der die Inhalte erlaubt (Stripe für Nicht-Erwachseneninhalte; CCBill, Segpay oder Verotel für Erwachseneninhalte), und trägt die Kontodaten im Admin ein. Wir bauen die Website so, dass sie die Anforderungen der Anbieter erfüllt, sind aber nicht Teil des Antrags.",
       },
       {
         q: "Kann die Website Inhalte für Erwachsene zeigen?",

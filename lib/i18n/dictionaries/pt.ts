@@ -94,13 +94,13 @@ const pt = {
       { title: "Marca d'água por assinante", text: "Cada cópia leva o nome do comprador, para rastrear um vazamento." },
       { title: "Fãs e mensagens", text: "Veja quem gasta mais, envie mensagens para grupos de fãs e venda conteúdo por mensagem." },
       { title: "Campanhas", text: "Cupons de desconto, links de teste grátis e qual rede social traz fãs pagantes." },
-      { title: "Pagamentos", text: "Stripe, CCBill, Segpay, Verotel ou cripto, conforme o conteúdo." },
+      { title: "Pagamentos", text: "Coloque os dados do seu provedor depois da aprovação: Stripe, CCBill, Segpay, Verotel ou cripto." },
       { title: "Conformidade", text: "Aviso de idade, integração com verificação de idade, consentimento de cookies, páginas legais, rótulos de conteúdo de IA e bloqueio por país." },
     ],
   },
   pricing: {
     title: "Preços",
-    lead: "Um único pagamento pelo site. Após a entrega, o site e todo o conteúdo pertencem ao criador.",
+    lead: "Um único pagamento. Criamos o site, entregamos o site e o painel, e saímos de cena. Tudo nele pertence ao criador.",
     popular: "O mais escolhido",
     order: "Encomendar",
     plans: [
@@ -108,15 +108,15 @@ const pt = {
         id: "starter",
         name: "Starter",
         price: "US$ 490",
-        text: "Um template com a sua marca, instalado no seu servidor.",
-        features: ["Qualquer template", "Seu logo, cores e fontes", "Instalação e configuração do domínio"],
+        text: "Um template com a sua marca, entregue pronto para funcionar.",
+        features: ["Qualquer template", "Seu logo, cores e fontes", "Instalado na sua hospedagem e no seu domínio", "Acesso ao painel e um guia de entrega"],
       },
       {
         id: "pro",
         name: "Pro",
         price: "US$ 1.290",
-        text: "Pronto para receber pagamentos desde o primeiro dia.",
-        features: ["Tudo do Starter", "Provedor de pagamento conectado", "Automações configuradas", "Uma hora de treinamento"],
+        text: "Pronto para a análise de um provedor de pagamentos.",
+        features: ["Tudo do Starter", "Páginas legais, verificação de idade e registros de consentimento prontos", "Uma lista para pedir conta na CCBill, Segpay e outros", "Um tour gravado pelo painel"],
       },
       {
         id: "custom",
@@ -126,7 +126,7 @@ const pt = {
         features: ["Tudo do Pro", "Seu próprio design", "Recursos extras sob pedido"],
       },
     ],
-    support: "Atualizações e suporte são opcionais: US$ 49 por mês.",
+    support: "Sem mensalidade. Erros encontrados nos primeiros 30 dias são corrigidos de graça; depois disso, o site funciona sem nós.",
   },
   process: {
     title: "Como funciona a encomenda",
@@ -141,10 +141,14 @@ const pt = {
     title: "Perguntas",
     items: [
       { q: "De quem é o site?", a: "Do criador. Após a entrega não temos acesso, a menos que ele nos dê." },
+      {
+        q: "Vou precisar de vocês depois da entrega?",
+        a: "Não. Posts, preços, fãs, cupons, pagamentos e conformidade são geridos no painel, e o guia de entrega explica cada parte. Erros encontrados nos primeiros 30 dias são corrigidos de graça.",
+      },
       { q: "Vocês hospedam ou veem o conteúdo?", a: "Não. O criador envia para o próprio servidor e armazenamento. Nunca ficamos com o conteúdo." },
       {
         q: "Quais provedores de pagamento funcionam?",
-        a: "Stripe para a maioria dos criadores. A Stripe não permite conteúdo adulto; nesse caso conectamos CCBill, Segpay, Verotel ou cripto. O criador abre a conta de comerciante e nós configuramos.",
+        a: "O criador pede conta a um provedor que aceite o conteúdo (Stripe para sites não adultos; CCBill, Segpay ou Verotel para conteúdo adulto) e coloca os dados da conta no painel. Construímos o site para cumprir as exigências dos provedores, mas não participamos do pedido.",
       },
       {
         q: "O site pode mostrar conteúdo adulto?",

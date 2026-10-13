@@ -92,13 +92,13 @@ const en = {
       { title: "Watermark per subscriber", text: "Every copy carries the buyer's name, so a leak can be traced." },
       { title: "Fans and messages", text: "See who spends the most, message groups of fans, sell content in messages." },
       { title: "Campaigns", text: "Discount codes, free-trial links, and which social link brings paying fans." },
-      { title: "Payments", text: "Stripe, CCBill, Segpay, Verotel or crypto, depending on the content." },
+      { title: "Payments", text: "Enter your provider's details once you're approved: Stripe, CCBill, Segpay, Verotel or crypto." },
       { title: "Compliance", text: "Age gate, age-verification hooks, cookie consent, legal pages, AI-content labels and country blocking." },
     ],
   },
   pricing: {
     title: "Pricing",
-    lead: "One payment for the site. After handover, the site and everything on it belongs to the creator.",
+    lead: "One payment. We build the site, hand over the site and its admin, and step away. Everything on it belongs to the creator.",
     popular: "Most chosen",
     order: "Order",
     plans: [
@@ -106,15 +106,15 @@ const en = {
         id: "starter",
         name: "Starter",
         price: "$490",
-        text: "A template in your brand, installed on your server.",
-        features: ["Any template", "Your logo, colours and fonts", "Installation and domain setup"],
+        text: "A template in your brand, handed over ready to run.",
+        features: ["Any template", "Your logo, colours and fonts", "Installed on your hosting and domain", "Admin login and a handover guide"],
       },
       {
         id: "pro",
         name: "Pro",
         price: "$1,290",
-        text: "Ready to take payments on day one.",
-        features: ["Everything in Starter", "Payment provider connected", "Automations set up", "One hour of training"],
+        text: "Ready for a payment provider's review.",
+        features: ["Everything in Starter", "Legal pages, age checks and consent records in place", "A checklist for applying to CCBill, Segpay and others", "A recorded walkthrough of the admin"],
       },
       {
         id: "custom",
@@ -124,7 +124,7 @@ const en = {
         features: ["Everything in Pro", "Your own design", "Extra features on request"],
       },
     ],
-    support: "Updates and support are optional: $49 a month.",
+    support: "No monthly fees. Bugs found in the first 30 days are fixed free; after that the site runs without us.",
   },
   process: {
     title: "How ordering works",
@@ -139,10 +139,14 @@ const en = {
     title: "Questions",
     items: [
       { q: "Who owns the site?", a: "The creator. After handover we have no access unless they give it to us." },
+      {
+        q: "Will I need you after handover?",
+        a: "No. Posts, prices, fans, promo codes, payments and compliance are all managed in the admin, and the handover guide walks through each. Bugs found in the first 30 days are fixed free.",
+      },
       { q: "Do you host or see the content?", a: "No. The creator uploads to their own server and storage. We never hold their content." },
       {
         q: "Which payment providers work?",
-        a: "Stripe for most creators. Stripe doesn't allow adult content, so for that we connect CCBill, Segpay, Verotel or crypto. The creator opens the merchant account and we set it up.",
+        a: "The creator applies to a provider that accepts their content (Stripe for non-adult sites; CCBill, Segpay or Verotel for adult) and enters the account details in the admin. We build the site to meet providers' requirements, but we're not part of the application.",
       },
       {
         q: "Can the site show adult content?",
